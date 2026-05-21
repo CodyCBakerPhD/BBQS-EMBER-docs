@@ -16,7 +16,7 @@ Below, we have provided one set of instructions for users that new to EMBER-DAND
 
 Please contact the EMBER team at [help@emberarchive.org](mailto:help@emberarchive.org) to facilitate data ingestion into EMBER-DANDI. We are also happy to add you to our Slack workspace.
 
-
+----
 ## Instructions for Experienced Users
 
 The following is a quick reference of the steps for uploading data using the DANDI CLI:
@@ -28,12 +28,13 @@ dandi organize <source_folder>
 dandi validate .
 dandi upload -i ember-dandi
 ```
-
+----
 ## Instructions for New Users
 
 ### Install Python
 
-If you're new to Python, it may be useful to start by checking out (Python's Getting Started page)[https://www.python.org/about/gettingstarted/]. There are many ways to install and use Python, so we've highlighted a few common ways to get started below.
+If you're new to Python, it may be useful to start by checking out [Python's Getting Started page](https://www.python.org/about/gettingstarted/) There are many ways to install and use Python, so we've highlighted a few common ways to get started below.
+
 - [Install Anaconda](https://www.anaconda.com/docs/getting-started/getting-started)
 - [Install uv](https://docs.astral.sh/uv/#installation)
 
@@ -86,4 +87,4 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi organize <source_folder>
     dandi validate .
     dandi upload -i ember-dandi
-    ```
+    

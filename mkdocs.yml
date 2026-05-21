@@ -30,7 +30,8 @@ extra_css:
 markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
-
+- admonition
+- pymdownx.details
 nav:
   - Home: index.md
   - Getting Started:
