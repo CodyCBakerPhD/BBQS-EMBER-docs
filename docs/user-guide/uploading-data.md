@@ -1,22 +1,22 @@
 # Uploading Data
 
-These instructions will guide you on how to upload data to EMBER-DANDI. 
+These instructions will guide you on how to upload data to EMBER-DANDI.
 
-Please follow the instructions for the option that best fits your needs:
+???+ info "Prerequisites"
+    Please ensure that your data is formatted using NWB and BIDS before attempting to upload to EMBER-DANDI
 
-**My files are all in NWB and BIDS:**
+    ??? question "My files are in a mix of standards or I have not used standards"
+        Please contact the EMBER team at [help@emberarchive.org](mailto:help@emberarchive.org) to facilitate data ingestion into EMBER-DANDI. We are also happy to add you to our Slack workspace.
 
-Below, we have provided one set of instructions for users that new to EMBER-DANDI, and one set for experienced users.
+
+Below, we have provided one set of instructions for users that are new to EMBER-DANDI, and one set for experienced users. Please follow whichever best fits your needs:
 
 1. [I've used DANDI or CLI tools before](#instructions-for-experienced-users)
 2. [I'm new to Python, CLI, and/or DANDI](#instructions-for-new-users)
     - Learn how to set up Python, install the DANDI CLI, and use NWB
 
-**My files are in a mix of standards or I have not used standards:**
-
-Please contact the EMBER team at [help@emberarchive.org](mailto:help@emberarchive.org) to facilitate data ingestion into EMBER-DANDI. We are also happy to add you to our Slack workspace.
-
 ----
+
 ## Instructions for Experienced Users
 
 The following is a quick reference of the steps for uploading data using the DANDI CLI:
@@ -28,7 +28,9 @@ dandi organize <source_folder>
 dandi validate .
 dandi upload -i ember-dandi
 ```
+
 ----
+
 ## Instructions for New Users
 
 ### Install Python
@@ -87,4 +89,10 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi organize <source_folder>
     dandi validate .
     dandi upload -i ember-dandi
-    
+    ```
+
+!!! note 
+    If using video files, replace `dandi organize "source folder"` with 
+    `dandi organize --update-external-file-paths --files-mode copy /path/to/source_folder`
+!!! warning "Password Prompt"
+    If this is your first upload, you may get a prompt to enter a password.  In the EMBER-DANDI Portal, click on your user icon in the top right to retrieve your API key. Enter this when prompted for your password. 
