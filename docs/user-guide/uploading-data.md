@@ -67,9 +67,12 @@ Below, you will find a brief set of steps to help you quickly get started with N
 
 ### Create an EMBER-DANDI dandiset
 
-1. Log in to EMBER-DANDI with your approved GitHub account
+1. Log in to [EMBER-DANDI](https://dandi.emberarchive.org) with your approved GitHub account
 2. Select the "New Dandiset" button in the top right corner
 3. Fill out basic metadata and hit "Register Dandiset"
+
+<img src="https://ember-web-assets.s3.amazonaws.com/documentation-images/register_new_dandiset.png" alt="screenshot of the New Dandiset form on EMBER-DANDI website" style="width: 90%; display:block; margin-left: auto; margin-right: auto;">
+
 
 ### Upload data to your dandiset
 
@@ -79,7 +82,10 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi validate --ignore DANDI.NO_DANDISET_FOUND <source_folder>
     ```
 
-2. Navigate to your dataset in the EMBER-DANDI archive and copy the dandiset ID number
+2. Navigate to your dataset on EMBER-DANDI and copy the dandiset ID number
+
+<img src="https://ember-web-assets.s3.amazonaws.com/documentation-images/test_number_data.png" alt="screenshot of where to find the Dandiset Id on EMBER-DANDI website" style="width: 90%; display:block; margin-left: auto; margin-right: auto;">
+
 3. Upload your validated .nwb files using the following commands, replacing `<dandiset_id>` and `<source_folder>` with your specific information:  
 
     ```bash
@@ -91,8 +97,10 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi upload -i ember-dandi
     ```
 
-!!! note 
+!!! note "Uploading Video Files"
     If using video files, replace `dandi organize "source folder"` with 
     `dandi organize --update-external-file-paths --files-mode copy /path/to/source_folder`
 !!! warning "Password Prompt"
     If this is your first upload, you may get a prompt to enter a password.  In the EMBER-DANDI Portal, click on your user icon in the top right to retrieve your API key. Enter this when prompted for your password. 
+
+    <img src="https://ember-web-assets.s3.amazonaws.com/documentation-images/API_key.png" alt="screenshot of the New Dandiset form" style="width: 50%; display:block; margin-left: auto; margin-right: auto;">
