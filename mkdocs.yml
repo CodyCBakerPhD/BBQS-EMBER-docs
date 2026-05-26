@@ -41,3 +41,4 @@ nav:
     - Overview: user-guide/index.md
     - user-guide/uploading-data.md
     # - user-guide/downloading-data.md
+  - Example Standardization and Reproducibility: example-standardization-and-reproducibility/Suthana_Zenodo.md
