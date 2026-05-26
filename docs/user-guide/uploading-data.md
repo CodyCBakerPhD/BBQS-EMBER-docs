@@ -13,13 +13,13 @@ Below, we have provided one set of instructions for users that are new to EMBER-
 
 1. [I've used DANDI or CLI tools before](#instructions-for-experienced-users)
 2. [I'm new to Python, CLI, and/or DANDI](#instructions-for-new-users)
-    - Learn how to set up Python, install the DANDI CLI, and use NWB
+    - Learn how to set up Python, install the DANDI Client, and use NWB
 
 ----
 
 ## Instructions for Experienced Users
 
-The following is a quick reference of the steps for uploading data using the DANDI CLI:
+The following is a quick reference of the steps for uploading data using the DANDI Client:
 ```
 dandi download https://dandi.emberarchive.org/dandiset/<dandiset_id>/draft
 cd <dandiset_id>
@@ -33,19 +33,9 @@ dandi upload -i ember-dandi
 
 ## Instructions for New Users
 
-### Install Python
+### Install Python and the DANDI Client
 
-If you're new to Python, it may be useful to start by checking out [Python's Getting Started page](https://www.python.org/about/gettingstarted/) There are many ways to install and use Python, so we've highlighted a few common ways to get started below.
-
-- [Install Anaconda](https://www.anaconda.com/docs/getting-started/getting-started)
-- [Install uv](https://docs.astral.sh/uv/#installation)
-
-### Install the [DANDI Client](https://pypi.org/project/dandi/)
-
-Once you've gotten up and running with Python, the following command will install the DANDI CLI:
-```bash
-pip install -U dandi
-```
+Please refer to our [Dandi Client](dandi-cli.md) page.
 
 ### Register for an EMBER-DANDI Account
 
@@ -82,7 +72,7 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi validate --ignore DANDI.NO_DANDISET_FOUND <source_folder>
     ```
 
-2. Navigate to your dataset on EMBER-DANDI and copy the dandiset ID number
+2. Navigate to your dandiset on EMBER-DANDI and copy the dandiset ID number
 
 <img src="https://ember-web-assets.s3.amazonaws.com/documentation-images/test_number_data.png" alt="screenshot of where to find the Dandiset Id on EMBER-DANDI website" style="width: 90%; display:block; margin-left: auto; margin-right: auto;">
 
