@@ -19,7 +19,7 @@ The documentation site is built with [Markdown](https://www.markdownguide.org/) 
 
 Run the following command:
 ```bash
-uv run mkdocs serve
+uv run mkdocs serve --livereload
 ```
 Then, open your browser to http://localhost:8080.
 
