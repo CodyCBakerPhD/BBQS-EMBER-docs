@@ -40,6 +40,7 @@ nav:
   - User Guide:
     - Overview: user-guide/index.md
     - The DANDI Client: user-guide/dandi-cli.md
-    - user-guide/uploading-data.md
-    - user-guide/downloading-data.md
+    - 'EMBER-DANDI: Uploading Data': user-guide/uploading-data.md
+    - 'EMBER-DANDI: Downloading Data': user-guide/downloading-data.md
+    - 'EMBER-Vault: Uploading Data': user-guide/embervault-uploading-data.md
   - Example Standardization and Reproducibility: example-standardization-and-reproducibility/Suthana_Zenodo.md
