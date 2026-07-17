@@ -347,8 +347,8 @@ If your team is struggling, the EMBER archive team can help. Reach out at `info@
 # 10. Recommended Workflow (Step-by-Step)
 
 1. Prepare raw data
-   - Export from acquisition systems
-   - Convert electrophysiology to NWB if appropriate, convert other data types to appropriate BIDS formats
+    - Export from acquisition systems
+    - Convert electrophysiology to NWB if appropriate, convert other data types to appropriate BIDS formats
 
 2. Create folder structure
 
