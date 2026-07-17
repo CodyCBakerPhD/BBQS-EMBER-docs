@@ -1,22 +1,22 @@
 # EMBER-Vault: Submission of Multimodal Human Data (BIDS + NWB)
 
-EMBERvault is the subsystem of the EMBER archive designed to store and control access to sensitive human data, including human health data and identifiable human data. It is suitable for human neural and behavioral experiments with sensitive data, and is not appropriate for open data release or animal data. It is compliant and aligned with relevant standards for PHI/PII data storage.
+EMBER-Vault is the subsystem of the EMBER archive designed to store and control access to sensitive human data, including human health data and identifiable human data. It is suitable for human neural and behavioral experiments with sensitive data, and is not appropriate for open data release or animal data. It is compliant and aligned with relevant standards for PHI/PII data storage.
 
 This guide walks you through a suggested procedure on how to prepare your dataset for upload using the BIDS standard, with support for intracranial recordings, audio/video, and behavioral data, and optional use of NWB files.
 
 This covers:
 1. The relevant standards
 2. The standardization process and examples
-3. Upload instructions for EMBERvault
+3. Upload instructions for EMBER-Vault
 
-Your team will standardize and validate data client side, then upload to the EMBERvault archive using Globus. This resource is under active development, and we anticipate EMBERvault will be available soon!
+Your team will standardize and validate data client side, then upload to the EMBER-Vault archive using Globus. This resource is under active development, and we anticipate EMBER-Vault will be available soon!
 
 ---
 
 # 1. Relevant Data Standards
 Before formatting your dataset, familiarize yourself with the standards supported by the BBQS Program and the EMBER archive (defined by the BBQS DCAIC Data Standards Working Group):
 
-https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing
+[https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing]()
 
 A quick summary relevant to sensitive, multimodal human datasets (such as audio/video of participants) is outlined below.
 
@@ -29,15 +29,15 @@ A quick summary relevant to sensitive, multimodal human datasets (such as audio/
 
 ### Intracranial / Microelectrode Data
 
-https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html
+[https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html]()
 
 ### MEG Data
 
-https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data
+[https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data]()
 
 ### BEP032 (iEEG / microelectrode extensions)
 
-https://bids.neuroimaging.io/extensions/beps/bep_032.html
+[https://bids.neuroimaging.io/extensions/beps/bep_032.html]()
 
 Use for:
 
@@ -49,7 +49,7 @@ Use for:
 
 #### BEP047 (motion, audio, video)
 
-https://bids.neuroimaging.io/extensions/beps/bep_047.html
+[https://bids.neuroimaging.io/extensions/beps/bep_047.html]()
 
 Use for:
 
@@ -59,7 +59,7 @@ Use for:
 
 ## NWB (Neurodata Without Borders)
 
-https://www.nwb.org/
+[https://www.nwb.org/]()
 
 Recommended for:
 
@@ -89,8 +89,8 @@ Preparing your dataset involves three main steps:
 
 ## Step 3: Validate Locally
 
-- Use the dandi-cli (which used the NWB inspector, BIDS Validator (https://bids.neuroimaging.io/tools/validator.html) etc) before uploading.
-- Please see the instructions here: https://github.com/dandi/dandi-cli
+- Use the dandi-cli (which used the NWB inspector, BIDS Validator ([https://bids.neuroimaging.io/tools/validator.html]()) etc) before uploading.
+- Please see the instructions here: [https://github.com/dandi/dandi-cli]()
 
 ## Step 4: Upload via Globus (Coming soon)
 
@@ -100,11 +100,11 @@ Preparing your dataset involves three main steps:
 
 BIDS specifies a particular set of folders and file names to organize data:
 
-https://bids.neuroimaging.io/getting_started/folders_and_files/index.html
+[https://bids.neuroimaging.io/getting_started/folders_and_files/index.html]()
 
 More examples will be made available at:
 
-https://github.com/brain-bbqs
+[https://github.com/brain-bbqs]()
 
 Here is a minimal multimodal dataset layout as an example, including iEEG in NWB formats and audio and video files:
 
@@ -276,11 +276,11 @@ To use EMBERvault, you must validate your dataset locally. The EMBERvault system
 
 You can find detailed instructions on use of the BIDS validator here:
 
-https://bids.neuroimaging.io/tools/validator.html
+[https://bids.neuroimaging.io/tools/validator.html]()
 
 We do not recommend using the online data validator for datasets containing PHI/PII.
 
-https://bids-validator.readthedocs.io/en/latest/user_guide/command-line.html
+[https://bids-validator.readthedocs.io/en/latest/user_guide/command-line.html]()
 
 ### Install
 
@@ -288,7 +288,7 @@ https://bids-validator.readthedocs.io/en/latest/user_guide/command-line.html
 
 Using Deno:
 
-https://docs.deno.com/runtime/getting_started/installation/
+[https://docs.deno.com/runtime/getting_started/installation/]()
 
 ```bash
 deno install -ERWN -g -n bids-validator jsr:@bids/validator
@@ -318,7 +318,7 @@ When using an extension, you must use the flag `--schema` with the link to the p
 
 - No errors → ready to upload
 - Warnings → usually acceptable but should be reviewed
-- Errors → must fix before upload to EMBERvault
+- Errors → must fix before upload to EMBER-Vault
 
 ---
 
@@ -373,7 +373,7 @@ If your team is struggling, the EMBER archive team can help. Reach out at `info@
 
 ---
 
-# 10. Upload to EMBERvault via Globus (coming soon)
+# 10. Upload to EMBER-Vault via Globus (coming soon)
 
 Check back for account instructions.
 
