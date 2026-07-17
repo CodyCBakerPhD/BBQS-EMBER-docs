@@ -352,9 +352,9 @@ If your team is struggling, the EMBER archive team can help. Reach out at `info@
 
 2. Create folder structure
 
-```bash
-mkdir -p my_dataset/sub-01/ses-01/ieeg
-```
+    ```bash
+    mkdir -p my_dataset/sub-01/ses-01/ieeg
+    ```
 
 3. Rename files to BIDS format
 
