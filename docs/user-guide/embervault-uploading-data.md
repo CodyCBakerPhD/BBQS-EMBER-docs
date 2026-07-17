@@ -22,7 +22,7 @@ A quick summary relevant to sensitive, multimodal human datasets (such as audio/
 
 ## Core BIDS
 
-- BIDS specification: https://bids.neuroimaging.io/
+- BIDS specification: [https://bids.neuroimaging.io/]()
 - Defines folder structure, file naming, file types and metadata conventions for different data types
 
 ## BIDS Extensions Supported
