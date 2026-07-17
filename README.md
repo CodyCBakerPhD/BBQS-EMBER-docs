@@ -14,6 +14,7 @@ The documentation site is built with [Markdown](https://www.markdownguide.org/) 
 
 - Open the `.md` you'd like to edit
 - Makes changes & save
+- Add the filename to [mkdocs.yml](/mkdocs.yml) under the `nav:` section to define how the file should appear in the table of contents 
 
 ### Preview Changes
 
