@@ -1,4 +1,4 @@
-# EMBERvault: Submission of Multimodal Human Data (BIDS + NWB)
+# EMBER-Vault: Submission of Multimodal Human Data (BIDS + NWB)
 
 EMBERvault is the subsystem of the EMBER archive designed to store and control access to sensitive human data, including human health data and identifiable human data. It is suitable for human neural and behavioral experiments with sensitive data, and is not appropriate for open data release or animal data. It is compliant and aligned with relevant standards for PHI/PII data storage.
 
