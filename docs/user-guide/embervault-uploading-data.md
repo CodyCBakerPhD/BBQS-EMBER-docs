@@ -359,9 +359,9 @@ If your team is struggling, the EMBER archive team can help. Reach out at `info@
 3. Rename files to BIDS format
 
 4. Create metadata files
-   - `dataset_description.json`
-   - `participants.tsv`
-   - sidecars
+    - `dataset_description.json`
+    - `participants.tsv`
+    - sidecars
 
 5. Add events + behavioral data
 
