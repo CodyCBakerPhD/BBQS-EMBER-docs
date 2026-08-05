@@ -24,6 +24,7 @@ theme:
         icon: material/theme-light-dark
         name: Switch to light mode
 
+
 extra_css:
   - stylesheets/extra.css
 
@@ -40,6 +41,7 @@ nav:
   - User Guide:
     - Overview: user-guide/index.md
     - The DANDI Client: user-guide/dandi-cli.md
+    - 'EMBER: Standardizing Data': user-guide/data-standardization.md
     - 'EMBER-DANDI: Uploading Data': user-guide/uploading-data.md
     - 'EMBER-DANDI: Downloading Data': user-guide/downloading-data.md
     - 'EMBER-Vault: Uploading Data': user-guide/embervault-uploading-data.md
