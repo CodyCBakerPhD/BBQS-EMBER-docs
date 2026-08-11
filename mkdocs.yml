@@ -24,6 +24,7 @@ theme:
         icon: material/theme-light-dark
         name: Switch to light mode
 
+
 extra_css:
   - stylesheets/extra.css
 
@@ -43,4 +44,5 @@ nav:
     - 'EMBER-DANDI: Uploading Data': user-guide/uploading-data.md
     - 'EMBER-DANDI: Downloading Data': user-guide/downloading-data.md
     - 'EMBER-Vault: Uploading Data': user-guide/embervault-uploading-data.md
+    - 'EMBER: Standardizing Data': user-guide/data-standardization.md
   - Example Standardization and Reproducibility: example-standardization-and-reproducibility/Suthana_Zenodo.md

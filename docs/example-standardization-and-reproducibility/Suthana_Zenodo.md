@@ -1,6 +1,7 @@
 # Example Workflow for Data Standardization and Analysis Reproducibility
 
 Here we document an example of how we
+
 1. standardized data into a community-accepted standard (NWB) and
 2. enabled reproducibility of paper figures as a starting point for secondary analyses.  
 
