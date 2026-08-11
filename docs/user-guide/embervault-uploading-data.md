@@ -12,6 +12,8 @@ Your team will standardize and validate data client side, then upload to the EMB
 ## Upload to EMBER-Vault via Globus 
 
 ### Account Setup
+
+Pre-Requisite: You will need to have an active Globus account, which can usually be obtain through your academic instituion.
 1. Request access to EMBER-Vault by contacting EMBER admins. You will be asked to provide information and reasoning as to why you need an EMBER-Vault account which will be used to determine your eligibility
 2. If and when your account is approved, EMBER admins will contact you providing your EMBER-Vault username and temporary password as well as the name of your EMBER-Vault project collection
 3. Log in to Globus. This can be done through your institution's authentication method 
