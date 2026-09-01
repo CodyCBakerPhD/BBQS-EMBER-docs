@@ -29,7 +29,11 @@ extra_css:
   - stylesheets/extra.css
 
 markdown_extensions:
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight
   - admonition
   - pymdownx.details
@@ -46,3 +50,10 @@ nav:
     - 'EMBER-Vault: Uploading Data': user-guide/embervault-uploading-data.md
     - 'EMBER: Standardizing Data': user-guide/data-standardization.md
   - Example Standardization and Reproducibility: example-standardization-and-reproducibility/Suthana_Zenodo.md
+  - User Stories:
+    - Overview: user-stories/index.md
+    - Clip Extractor:
+      - Why the Clip Extractor exists: user-stories/clip-extractor/index.md
+      - Pose estimation stories: user-stories/clip-extractor/pose-estimation.md
+      - Archive workflow stories: user-stories/clip-extractor/archive-workflows.md
+      - Privacy and provenance stories: user-stories/clip-extractor/privacy-and-provenance.md
