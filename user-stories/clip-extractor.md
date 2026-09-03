@@ -39,12 +39,14 @@ flowchart LR
         B --> D[Screen recording]
         B --> E[Send timestamps in chat]
         C --> F[Time-consuming, needs tooling, provenance lost]
-        D --> G[Frame indices lost, pose context lost]
+        D --> G[Frame indices lost and pose track lost]
         E --> H[Recipient may not have the file]
     end
 ```
 
-Each of these loses either the **precision** (which frame, exactly?), the **provenance** (which recording did this come from?), or the **pose context** (what did the tracker think was happening here?). All of them are slow enough that people skip the step.
+Each of these loses either the **precision** (which frames, exactly?), the **provenance** (which recording did this come from?), or the **pose track** (the overlay data that could be re-applied to the video; the human-annotated labels vs. auto-generated series). All of them are slow enough that people skip the step.
+
+
 
 ## What the tool does
 
