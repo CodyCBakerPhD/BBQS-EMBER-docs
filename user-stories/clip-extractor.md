@@ -13,8 +13,8 @@ Each story is written as *As a [kind of user], I want [a capability], so that [a
 **Contents**
 
 1. [Problem](#problem)
-2. [Solution](#solution)
-3. [Users](#users)
+2. [What the tool does](#what-the-tool-does)
+3. [Who it is for](#who-it-is-for)
 4. [Story map](#story-map)
 5. [Pose estimation stories](#pose-estimation-stories) (stories 1 to 4)
 6. [Archive workflow stories](#archive-workflow-stories) (stories 5 to 8)
@@ -99,7 +99,7 @@ flowchart TB
 | **Task force or working group member** | Reviews examples across labs to define standards such as skeleton definitions. | Grab a representative frame from any accessible recording on EMBER without downloading the entire file. |
 | **Compliance-minded PI** | Works with human subjects data or embargoed datasets. | Be confident that nothing leaves the browser unintentionally and that identifiable content can be blurred before sharing. |
 
-## Story map
+## Stories
 
 ```mermaid
 mindmap
@@ -122,10 +122,6 @@ mindmap
 ```
 
 ---
-
-## Pose estimation stories
-
-These stories come most directly from the Pose Estimation Task Force discussions. The common thread is that pose estimation work is done on **short, specific moments** inside **long recordings**, and that those moments need to travel between people and tools without losing their frame indices or their pose context.
 
 ### Story 1: Share a tracking failure case
 
