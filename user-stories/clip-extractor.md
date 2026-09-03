@@ -100,31 +100,11 @@ flowchart TB
 
 ## Stories
 
-```mermaid
-mindmap
-  root((Clip Extractor))
-    Pose estimation
-      Share a tracking failure case
-      Curate benchmark clips
-      Verify pose belongs to this video
-      Capture a reference frame for a skeleton definition
-    Archive workflows
-      Clip from EMBER without downloading
-      Upload a derivative with correct naming
-      Work with multi-hour recordings
-      Keep audio and video together
-    Privacy and provenance
-      Nothing leaves the browser unless I say so
-      Blur people before sharing
-      Respect embargo status
-      Record where a clip came from
-```
-
 ---
 
 ### Story 1: Share a tracking failure case
 
-**Persona:** Pose estimation researcher.
+**Persona:** Scientific researcher using pose estimation as a part of analysis pipeline.
 
 > As a **pose estimation researcher**, I want to extract the few seconds where my tracker lost an animal, with the predicted pose drawn on top, so that I can show a collaborator or the task force exactly what went wrong without sending a multi-gigabyte recording.
 
