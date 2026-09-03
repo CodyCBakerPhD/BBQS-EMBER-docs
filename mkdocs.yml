@@ -1,6 +1,7 @@
 site_name: EMBER Docs
 repo_name: aplbrain/bbqs-ember-docs
 repo_url: https://github.com/aplbrain/BBQS-EMBER-docs
+site_url: https://codycbakerphd.github.io/BBQS-EMBER-docs/
 
 theme:
   name: material

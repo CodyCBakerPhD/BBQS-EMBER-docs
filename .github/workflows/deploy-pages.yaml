@@ -23,6 +23,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      # Creates the GitHub Pages site with the "GitHub Actions" source if it
+      # does not exist yet, so forks deploy without a manual Settings -> Pages
+      # step. No-op when the site is already configured.
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
