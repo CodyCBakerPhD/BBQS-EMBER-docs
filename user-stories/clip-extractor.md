@@ -24,7 +24,7 @@ Each story is written as *As a [kind of user], I want [a capability], so that [a
 
 ---
 
-## The problem
+## Problem
 
 Behavioral recordings in BBQS are long. A single session can run for hours and a single file can be tens of gigabytes. The interesting moments, however, are short: a few seconds where a tracker loses an animal, a single frame where two subjects overlap, a bout of a rare behavior that a model should learn to recognize.
 
@@ -48,9 +48,9 @@ Each of these loses either the **precision** (which frames, exactly?), the **pro
 
 
 
-## What the tool does
+## Solution
 
-The Clip Extractor runs entirely in the browser. It decodes video client-side, lets the user scrub to a frame or mark a range, optionally overlays pose data from a SLEAP file, and produces either a still image or a trimmed video clip. The output can be saved locally or, when the user is signed in and has an appropriate Dandiset on EMBER, uploaded directly as a derivative with BIDS-style naming.
+The Clip Extractor runs entirely in the browser. It decodes video client-side, lets the user scrub to a frame or mark a range, optionally overlays pose data from a SLEAP file, and produces either a still image or a trimmed video clip. The output can be saved locally or, when the user is signed in and has an appropriate Dandiset on EMBER, uploaded directly as a derivative with BEP047-compliant organization.
 
 ```mermaid
 flowchart TB
@@ -90,7 +90,7 @@ flowchart TB
     SN --> UP
 ```
 
-## Who it is for
+## Users
 
 | Persona | Short description | Typical need |
 |---|---|---|
