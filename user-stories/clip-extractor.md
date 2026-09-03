@@ -53,7 +53,7 @@ Each of these loses either the **precision** (which frames, exactly?), the **pro
 The Clip Extractor runs entirely in the browser. It decodes video client-side, lets the user scrub to a frame or mark a range, optionally overlays pose data from a SLEAP file, and produces either a still image or a trimmed video clip. The output can be saved locally or, when the user is signed in and has an appropriate Dandiset on EMBER, uploaded directly as a derivative with BIDS-style naming.
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph sources["Sources"]
         L[Local video file dropped into the browser]
         R[Video streamed from EMBER]
@@ -61,7 +61,6 @@ flowchart LR
     end
 
     subgraph app["Clip Extractor in the browser"]
-        direction TB
         DEC[Decode video client-side]
         TL[Timeline and rulers sliding window for long recordings]
         SEL{Selection}
