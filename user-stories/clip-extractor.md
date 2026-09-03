@@ -4,7 +4,6 @@ User stories in support of the **Clip Extractor** usability; a web application f
 
 - Application: https://clip-extractor.brain-bbqs.org
 - Source code: https://github.com/brain-bbqs/clip-extractor
-- Built and maintained by the Center for Open Neuroscience. Originally conceived and prototyped by the Talmo Lab as part of [VIBES](https://github.com/talmolab/vibes). Uploads are powered by the [BBQS Uploader](https://github.com/brain-bbqs/bbqs-uploader).
 
 > [!NOTE]
 > The need for this tool surfaced in the **Pose Estimation Task Force** discussions at the **2026 BBQS workshop**. The stories here are a written-down version of those discussions and of the follow-on needs that emerged once the tool was connected to the EMBER Archive. They are meant to be revised by the task force as the tool evolves.
@@ -29,28 +28,23 @@ Each story is written as *As a [kind of user], I want [a capability], so that [a
 
 Behavioral recordings in BBQS are long. A single session can run for hours and a single file can be tens of gigabytes. The interesting moments, however, are short: a few seconds where a tracker loses an animal, a single frame where two subjects overlap, a bout of a rare behavior that a model should learn to recognize.
 
-Before the Clip Extractor, moving one of those moments from a recording to a colleague, a task force, an annotation tool, or the archive meant one of the following:
-
-- downloading the whole recording and trimming it with command-line tools,
-- taking a screenshot and losing the frame index and the source,
-- sharing a timestamp in a message and hoping the recipient has the same file, or
-- not sharing it at all.
-
-Each of these loses either the **precision** (which frame, exactly?), the **provenance** (which recording did this come from?), or the **pose context** (what did the tracker think was happening here?). All of them are slow enough that people skip the step.
+Before the Clip Extractor, moving one of those moments from a recording to a colleague, another task force, an annotation tool, or the archive meant one of the following:
 
 ```mermaid
 flowchart LR
-    subgraph before["Before: share a moment from a long recording"]
+    subgraph before["Goal: share a moment from a long recording"]
         direction TB
-        A[Multi-hour recording<br/>on a lab server or on EMBER] --> B{How do I share<br/>seconds 4312 to 4318?}
-        B --> C[Download the whole file<br/>and trim with ffmpeg]
-        B --> D[Screenshot]
-        B --> E[Send a timestamp<br/>in chat]
-        C --> F[Slow, needs tooling,<br/>provenance lost]
-        D --> G[Frame index lost,<br/>pose context lost]
-        E --> H[Recipient may not<br/>have the file]
+        A[Multi-hour recordingon a lab server or on EMBER] --> B{How do I shareseconds 4312 to 4318?}
+        B --> C[Download the whole file and trim with ffmpeg]
+        B --> D[Screen recording]
+        B --> E[Send timestamps in chat]
+        C --> F[Time-consuming, needs tooling, provenance lost]
+        D --> G[Frame indices lost,pose context lost]
+        E --> H[Recipient may not have the file]
     end
 ```
+
+Each of these loses either the **precision** (which frame, exactly?), the **provenance** (which recording did this come from?), or the **pose context** (what did the tracker think was happening here?). All of them are slow enough that people skip the step.
 
 ## What the tool does
 
