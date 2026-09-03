@@ -10,7 +10,7 @@ User documentation for the EMBER Archive, built with MkDocs (Material theme) fro
 
 Some material is meant to be read on GitHub and is deliberately **not** part of the built site. It lives outside `docs/` so MkDocs never picks it up. Do not add it to `mkdocs.yml`, and do not move it under `docs/`.
 
-- `user-stories/`: user stories for tools in the EMBER ecosystem.
+- `user-stories/`: user stories for tools in the EMBER ecosystem. One folder per tool, with a `README.md` that introduces the tool and indexes the stories, and one `story-NN-<slug>.md` file per story.
 
 Style for these pages:
 
