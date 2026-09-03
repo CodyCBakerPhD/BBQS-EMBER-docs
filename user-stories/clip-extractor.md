@@ -13,14 +13,13 @@ Each story is written as *As a [kind of user], I want [a capability], so that [a
 **Contents**
 
 1. [Problem](#problem)
-2. [What the tool does](#what-the-tool-does)
-3. [Who it is for](#who-it-is-for)
-4. [Story map](#story-map)
-5. [Pose estimation stories](#pose-estimation-stories) (stories 1 to 4)
-6. [Archive workflow stories](#archive-workflow-stories) (stories 5 to 8)
-7. [Privacy and provenance stories](#privacy-and-provenance-stories) (stories 9 to 12)
-8. [Future stories](#future-stories)
-9. [What the tool is not](#what-the-tool-is-not)
+2. [Solution](#solution)
+3. [Users](#users)
+4. [Stories](#stories) (story map; stories 1 to 4)
+5. [Archive workflow stories](#archive-workflow-stories) (stories 5 to 8)
+6. [Privacy and provenance stories](#privacy-and-provenance-stories) (stories 9 to 12)
+7. [Future stories](#future-stories)
+8. [What the tool is not](#what-the-tool-is-not)
 
 ---
 
