@@ -1,6 +1,6 @@
 # Clip Extractor: user stories
 
-User stories justifying the **Clip Extractor**, a web application for selecting a clip from a video, either a snippet (a range of frames) or a single frame, and either saving it locally or uploading it directly to the EMBER Archive.
+User stories in support of the **Clip Extractor** usability; a web application for selecting a clip from a video, either a snippet (a range of frames) or a single frame, and either saving it locally or uploading it directly to the EMBER Archive.
 
 - Application: https://clip-extractor.brain-bbqs.org
 - Source code: https://github.com/brain-bbqs/clip-extractor
