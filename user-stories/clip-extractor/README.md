@@ -153,4 +153,6 @@ Keeping scope honest is part of the justification.
 
 ## Contributing a story
 
-Stories are living documents. If your team has a need that is not captured here, or a story does not match how you actually work, open a pull request. Add a new `story-<counter>-<descriptor>.md` file in this folder and link it from the index above. Include the persona in one line, the story in the "As a / I want / so that" form, two to five acceptance criteria that could be checked by someone other than you, and optionally a Mermaid diagram of the workflow.
+Stories are living documents. If your team has a need that is not captured here, or a story does not match how you actually work, open a pull request.
+
+Copy the [story template](../story-template.md) into this folder as `story-<counter>-<descriptor>.md`, continuing the numbering above, then link it from the index. See [contributing a story](../README.md#contributing-a-story) for the full instructions and conventions.
