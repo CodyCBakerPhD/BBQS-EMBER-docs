@@ -15,7 +15,7 @@ Each story is written as *As a [kind of user], I want [a capability], so that [a
 1. [Problem](#problem)
 2. [Solution](#solution)
 3. [Users](#users)
-4. [Stories](#stories) (story map; stories 1 to 4)
+4. [Stories](#stories) (stories 1 to 4)
 5. [Archive workflow stories](#archive-workflow-stories) (stories 5 to 8)
 6. [Privacy and provenance stories](#privacy-and-provenance-stories) (stories 9 to 12)
 7. [Future stories](#future-stories)
@@ -112,11 +112,11 @@ flowchart TB
 
 **Acceptance criteria**
 
-- [ ] I can open a local video file or a video on EMBER and scrub to the frame where the failure begins.
-- [ ] I can mark a snippet range by frame, not just by rough time, and the rulers show me which frames are included.
-- [ ] I can load a SLEAP `.slp` file and see the predicted skeleton drawn over the video while I scrub.
-- [ ] The exported clip carries the frame count and codec information so the recipient can line it back up against the source.
-- [ ] The whole process takes minutes, not an afternoon, and requires no command-line tools.
+- I can open a local video file or a video on EMBER and scrub to the frame where the failure begins.
+- I can mark a snippet range by frame, not just by rough time, and the rulers show me which frames are included.
+- I can load a SLEAP `.slp` file and see the predicted skeleton drawn over the video while I scrub.
+- The exported clip carries the frame count and codec information so the recipient can line it back up against the source.
+- The whole process takes minutes, not an afternoon, and requires no command-line tools.
 
 ```mermaid
 sequenceDiagram
@@ -147,10 +147,10 @@ sequenceDiagram
 
 **Acceptance criteria**
 
-- [ ] I can browse videos in a Dandiset on EMBER from inside the tool and open one without downloading it first.
-- [ ] I can extract a snippet and have it named consistently with the source subject and session, so a curated set stays traceable.
-- [ ] Repeating the process across several recordings does not require re-learning the tool or re-authenticating each time.
-- [ ] The exported clips are ordinary video files that annotation platforms and training pipelines can ingest without conversion.
+- I can browse videos in a Dandiset on EMBER from inside the tool and open one without downloading it first.
+- I can extract a snippet and have it named consistently with the source subject and session, so a curated set stays traceable.
+- Repeating the process across several recordings does not require re-learning the tool or re-authenticating each time.
+- The exported clips are ordinary video files that annotation platforms and training pipelines can ingest without conversion.
 
 ```mermaid
 flowchart TD
@@ -174,9 +174,9 @@ flowchart TD
 
 **Acceptance criteria**
 
-- [ ] When I load a pose file whose properties do not match the video (for example, a different frame count or dimensions), the tool refuses the overlay and tells me why.
-- [ ] When the pose file does match, the overlay tracks the video frame-accurately as I scrub.
-- [ ] The mismatch check happens before I export, so a bad pairing cannot silently end up in a shared clip.
+- When I load a pose file whose properties do not match the video (for example, a different frame count or dimensions), the tool refuses the overlay and tells me why.
+- When the pose file does match, the overlay tracks the video frame-accurately as I scrub.
+- The mismatch check happens before I export, so a bad pairing cannot silently end up in a shared clip.
 
 ```mermaid
 stateDiagram-v2
@@ -201,10 +201,10 @@ stateDiagram-v2
 
 **Acceptance criteria**
 
-- [ ] I can select a single frame, rather than a range, and export it as a still image.
-- [ ] Frame extraction works even in environments where full video re-encoding is not available, because a still does not require it.
-- [ ] The still keeps enough context (source dataset, subject, session, frame index) that a reader of the guideline can find the original.
-- [ ] I can do this for a recording on EMBER while signed in, without first copying the file to my machine.
+- I can select a single frame, rather than a range, and export it as a still image.
+- Frame extraction works even in environments where full video re-encoding is not available, because a still does not require it.
+- The still keeps enough context (source dataset, subject, session, frame index) that a reader of the guideline can find the original.
+- I can do this for a recording on EMBER while signed in, without first copying the file to my machine.
 
 ```mermaid
 sequenceDiagram
@@ -239,10 +239,10 @@ These stories are about the Clip Extractor as a **front door to EMBER**. The too
 
 **Acceptance criteria**
 
-- [ ] After signing in, I can browse the videos in a Dandiset from a pane inside the tool.
-- [ ] Selecting a video starts playback from the archive without a full download.
-- [ ] Subject and session information from the archive path is carried into the tool so the output can be named correctly.
-- [ ] The tool records which dataset the clip came from so the output can reference its source.
+- After signing in, I can browse the videos in a Dandiset from a pane inside the tool.
+- Selecting a video starts playback from the archive without a full download.
+- Subject and session information from the archive path is carried into the tool so the output can be named correctly.
+- The tool records which dataset the clip came from so the output can reference its source.
 
 ```mermaid
 sequenceDiagram
@@ -271,11 +271,11 @@ sequenceDiagram
 
 **Acceptance criteria**
 
-- [ ] When the source video came from EMBER, the uploaded clip is named using the source subject and session.
-- [ ] When the source video was a local file with no metadata, the tool falls back to a clearly marked placeholder subject rather than guessing.
-- [ ] The clip is placed as a derivative, not mixed in with raw source data.
-- [ ] The upload goes through the same BBQS Uploader used for other archive uploads, so there is one authentication path and one set of upload rules.
-- [ ] I can only upload into Dandisets I actually have access to; if I have none, the tool tells me and still lets me save locally.
+- When the source video came from EMBER, the uploaded clip is named using the source subject and session.
+- When the source video was a local file with no metadata, the tool falls back to a clearly marked placeholder subject rather than guessing.
+- The clip is placed as a derivative, not mixed in with raw source data.
+- The upload goes through the same BBQS Uploader used for other archive uploads, so there is one authentication path and one set of upload rules.
+- I can only upload into Dandisets I actually have access to; if I have none, the tool tells me and still lets me save locally.
 
 ```mermaid
 flowchart TD
@@ -303,9 +303,9 @@ flowchart TD
 
 **Acceptance criteria**
 
-- [ ] For recordings longer than roughly half an hour, the timeline switches to a sliding window so I can zoom into a region and still pick individual frames.
-- [ ] Preview frames are sampled rather than fully decoded so scrubbing stays responsive.
-- [ ] Marking a range at hour three yields the same frame-accurate result as marking one at minute three.
+- For recordings longer than roughly half an hour, the timeline switches to a sliding window so I can zoom into a region and still pick individual frames.
+- Preview frames are sampled rather than fully decoded so scrubbing stays responsive.
+- Marking a range at hour three yields the same frame-accurate result as marking one at minute three.
 
 ```mermaid
 flowchart LR
@@ -329,9 +329,9 @@ flowchart LR
 
 **Acceptance criteria**
 
-- [ ] When the source has an audio track, the copy of the source data is labelled as audio-video rather than video-only.
-- [ ] Derived clips keep the video suffix appropriate for what they contain.
-- [ ] The presence or absence of audio does not change the frame-accuracy of the selection.
+- When the source has an audio track, the copy of the source data is labelled as audio-video rather than video-only.
+- Derived clips keep the video suffix appropriate for what they contain.
+- The presence or absence of audio does not change the frame-accuracy of the selection.
 
 ```mermaid
 flowchart TD
@@ -358,9 +358,9 @@ BBQS data includes human subjects recordings and embargoed datasets. A tool that
 
 **Acceptance criteria**
 
-- [ ] Opening a local file performs all decoding and trimming in the browser; no video data is sent to a server for processing.
-- [ ] The only network transfer of clip content is the explicit upload step, which requires a signed-in user and a deliberate action.
-- [ ] Saving locally is always available, even when signed out or when I have no Dandiset to upload to.
+- Opening a local file performs all decoding and trimming in the browser; no video data is sent to a server for processing.
+- The only network transfer of clip content is the explicit upload step, which requires a signed-in user and a deliberate action.
+- Saving locally is always available, even when signed out or when I have no Dandiset to upload to.
 
 ```mermaid
 flowchart LR
@@ -384,9 +384,9 @@ flowchart LR
 
 **Acceptance criteria**
 
-- [ ] When the dataset is flagged as involving human subjects, the tool shows a visible warning before I can export.
-- [ ] A blur tool is available that lets me mask a region of the frame, and the mask is applied to the exported clip or still.
-- [ ] The warning and blur tool do not depend on my remembering to turn them on; they appear because of the dataset flag.
+- When the dataset is flagged as involving human subjects, the tool shows a visible warning before I can export.
+- A blur tool is available that lets me mask a region of the frame, and the mask is applied to the exported clip or still.
+- The warning and blur tool do not depend on my remembering to turn them on; they appear because of the dataset flag.
 
 ```mermaid
 sequenceDiagram
@@ -415,10 +415,10 @@ sequenceDiagram
 
 **Acceptance criteria**
 
-- [ ] For a Dandiset that is not embargoed, the upload option is disabled and the tool explains why.
-- [ ] For an embargoed Dandiset I have access to, upload is available.
-- [ ] If I am signed in but have no eligible Dandiset, the tool says so and offers local save instead of failing silently.
-- [ ] Signed-out users can still use every local feature of the tool.
+- For a Dandiset that is not embargoed, the upload option is disabled and the tool explains why.
+- For an embargoed Dandiset I have access to, upload is available.
+- If I am signed in but have no eligible Dandiset, the tool says so and offers local save instead of failing silently.
+- Signed-out users can still use every local feature of the tool.
 
 ```mermaid
 flowchart TD
@@ -440,10 +440,10 @@ flowchart TD
 
 **Acceptance criteria**
 
-- [ ] Clips derived from EMBER sources carry a reference to the source dataset.
-- [ ] Snippet exports include the frame count and codec, so the range can be re-derived from the source.
-- [ ] The output naming preserves subject and session from the source.
-- [ ] When the source is a local file with unknown provenance, the output makes that lack of provenance visible rather than inventing values.
+- Clips derived from EMBER sources carry a reference to the source dataset.
+- Snippet exports include the frame count and codec, so the range can be re-derived from the source.
+- The output naming preserves subject and session from the source.
+- When the source is a local file with unknown provenance, the output makes that lack of provenance visible rather than inventing values.
 
 ```mermaid
 flowchart LR

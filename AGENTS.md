@@ -12,6 +12,10 @@ Some material is meant to be read on GitHub and is deliberately **not** part of 
 
 - `user-stories/`: user stories for tools in the EMBER ecosystem.
 
+Style for these pages:
+
+- Do not use task-list checkboxes (`- [ ]`). Acceptance criteria and similar lists are plain bullets.
+
 ## Mermaid diagrams
 
 GitHub renders Mermaid natively in markdown files, so GitHub-only pages can use ` ```mermaid ` fences directly.
