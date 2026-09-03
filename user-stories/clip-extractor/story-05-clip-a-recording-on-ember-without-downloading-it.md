@@ -15,6 +15,7 @@
 - The tool records which dataset the clip came from so the output can reference its source.
 
 ```mermaid
+%%{init: {"sequence": {"mirrorActors": false}}}%%
 sequenceDiagram
     actor U as EMBER user
     participant CE as Clip Extractor

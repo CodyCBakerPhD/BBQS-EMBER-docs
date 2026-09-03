@@ -16,11 +16,12 @@
 - The whole process takes minutes, not an afternoon, and requires no command-line tools.
 
 ```mermaid
+%%{init: {"sequence": {"mirrorActors": false}}}%%
 sequenceDiagram
+    actor C as Collaborator
     actor R as Researcher
     participant CE as Clip Extractor
     participant SLP as SLEAP file
-    actor C as Collaborator
 
     R->>CE: Open recording (local or from EMBER)
     R->>CE: Drop .slp pose file

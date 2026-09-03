@@ -14,6 +14,7 @@
 - The warning and blur tool do not depend on my remembering to turn them on; they appear because of the dataset flag.
 
 ```mermaid
+%%{init: {"sequence": {"mirrorActors": false}}}%%
 sequenceDiagram
     actor R as Researcher
     participant CE as Clip Extractor

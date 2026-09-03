@@ -15,6 +15,7 @@
 - I can do this for a recording on EMBER while signed in, without first copying the file to my machine.
 
 ```mermaid
+%%{init: {"sequence": {"mirrorActors": false}}}%%
 sequenceDiagram
     actor W as Working group member
     participant CE as Clip Extractor
