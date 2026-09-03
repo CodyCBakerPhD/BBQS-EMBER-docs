@@ -34,12 +34,12 @@ Before the Clip Extractor, moving one of those moments from a recording to a col
 flowchart LR
     subgraph before["Goal: share a moment from a long recording"]
         direction TB
-        A[Multi-hour recordingon a lab server or on EMBER] --> B{How do I shareseconds 4312 to 4318?}
+        A[Multi-hour recording on a lab server or on EMBER] --> B{How do I share seconds 4312 to 4318?}
         B --> C[Download the whole file and trim with ffmpeg]
         B --> D[Screen recording]
         B --> E[Send timestamps in chat]
         C --> F[Time-consuming, needs tooling, provenance lost]
-        D --> G[Frame indices lost,pose context lost]
+        D --> G[Frame indices lost, pose context lost]
         E --> H[Recipient may not have the file]
     end
 ```
@@ -53,20 +53,20 @@ The Clip Extractor runs entirely in the browser. It decodes video client-side, l
 ```mermaid
 flowchart LR
     subgraph sources["Sources"]
-        L[Local video file<br/>dropped into the browser]
-        R[Video streamed<br/>from EMBER]
-        P[SLEAP pose file<br/>optional]
+        L[Local video file dropped into the browser]
+        R[Video streamed from EMBER]
+        P[SLEAP pose file optional]
     end
 
     subgraph app["Clip Extractor in the browser"]
         direction TB
-        DEC[Decode video<br/>client-side]
-        TL[Timeline and rulers<br/>sliding window for long recordings]
+        DEC[Decode video client-side]
+        TL[Timeline and rulers sliding window for long recordings]
         SEL{Selection}
         FR[Single frame]
         SN[Snippet range]
-        OV[Pose overlay<br/>with mismatch check]
-        BL[Blur tool<br/>for human subjects]
+        OV[Pose overlay with mismatch check]
+        BL[Blur tool for human subjects]
         DEC --> TL --> SEL
         SEL --> FR
         SEL --> SN
@@ -77,7 +77,7 @@ flowchart LR
 
     subgraph outputs["Outputs"]
         SAVE[Save locally]
-        UP[Upload to a Dandiset on EMBER<br/>via the BBQS Uploader]
+        UP[Upload to a Dandiset on EMBER via the BBQS Uploader]
     end
 
     L --> DEC
@@ -179,14 +179,14 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    A[Task force defines what a<br/>benchmark should contain] --> B[Researcher browses<br/>Dandiset on EMBER]
+    A[Task force defines what a benchmark should contain] --> B[Researcher browses Dandiset on EMBER]
     B --> C[Open recording 1]
     C --> D[Mark representative snippet]
-    D --> E[Export or upload<br/>as derivative]
+    D --> E[Export or upload as derivative]
     E --> F{More recordings?}
     F -- yes --> B
-    F -- no --> G[Curated clip set<br/>with subject and session<br/>preserved in names]
-    G --> H[Annotation platform<br/>or training pipeline]
+    F -- no --> G[Curated clip set with subject and session preserved in names]
+    G --> H[Annotation platform or training pipeline]
 ```
 
 ### Story 3: Verify that a pose file belongs to this video
@@ -304,17 +304,17 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    S{Where did the<br/>video come from?}
-    S -- EMBER --> E1[Use subject and session<br/>from the source path]
-    S -- Local file --> L1[Use placeholder subject<br/>sub-unknown]
-    E1 --> N[Build BIDS-style<br/>derivative filename]
+    S{Where did the video come from?}
+    S -- EMBER --> E1[Use subject and session from the source path]
+    S -- Local file --> L1[Use placeholder subject sub-unknown]
+    E1 --> N[Build BIDS-style derivative filename]
     L1 --> N
     N --> T{Snippet or frame?}
-    T -- Snippet --> V[Video clip<br/>with VideoCodec and<br/>VideoFrameCount]
+    T -- Snippet --> V[Video clip with VideoCodec and VideoFrameCount]
     T -- Frame --> I[Still image]
-    V --> D{Signed in with an<br/>uploadable Dandiset?}
+    V --> D{Signed in with an uploadable Dandiset?}
     I --> D
-    D -- yes --> UP[Upload via BBQS Uploader<br/>into the Dandiset derivatives]
+    D -- yes --> UP[Upload via BBQS Uploader into the Dandiset derivatives]
     D -- no --> SV[Save locally]
 ```
 
@@ -334,12 +334,12 @@ flowchart TD
 
 ```mermaid
 flowchart LR
-    A[Load recording] --> B{Duration over<br/>about 30 minutes?}
-    B -- no --> C[Full timeline<br/>every frame reachable directly]
+    A[Load recording] --> B{Duration over about 30 minutes?}
+    B -- no --> C[Full timeline every frame reachable directly]
     B -- yes --> D[Sliding window timeline]
-    D --> E[Coarse scrub across<br/>the whole recording]
-    E --> F[Zoom window to<br/>the region of interest]
-    F --> G[Frame-accurate<br/>selection inside window]
+    D --> E[Coarse scrub across the whole recording]
+    E --> F[Zoom window to the region of interest]
+    F --> G[Frame-accurate selection inside window]
     C --> H[Mark selection]
     G --> H
 ```
@@ -361,9 +361,9 @@ flowchart LR
 ```mermaid
 flowchart TD
     A[Inspect source tracks] --> B{Audio track present?}
-    B -- yes --> C[Source copy suffixed<br/>_audiovideo]
-    B -- no --> D[Source copy suffixed<br/>_video]
-    C --> E[Derived clip suffixed<br/>according to its content]
+    B -- yes --> C[Source copy suffixed _audiovideo]
+    B -- no --> D[Source copy suffixed _video]
+    C --> E[Derived clip suffixed according to its content]
     D --> E
 ```
 
@@ -396,7 +396,7 @@ flowchart LR
         D --> E[Clip in memory]
         E --> F[Save to disk]
     end
-    E -. only on explicit upload,<br/>signed in .-> G[EMBER Archive]
+    E -. only on explicit upload, signed in .-> G[EMBER Archive]
 ```
 
 ### Story 10: Blur people before sharing
@@ -448,10 +448,10 @@ sequenceDiagram
 ```mermaid
 flowchart TD
     A{Signed in?} -- no --> L[Local save only]
-    A -- yes --> B{Any Dandisets<br/>accessible?}
-    B -- none --> L2[Local save only,<br/>message shown]
-    B -- one or more --> C{Selected Dandiset<br/>embargoed?}
-    C -- no --> D[Upload disabled,<br/>reason shown,<br/>local save available]
+    A -- yes --> B{Any Dandisets accessible?}
+    B -- none --> L2[Local save only, message shown]
+    B -- one or more --> C{Selected Dandiset embargoed?}
+    C -- no --> D[Upload disabled, reason shown, local save available]
     C -- yes --> U[Upload enabled]
 ```
 
@@ -479,9 +479,9 @@ flowchart LR
         VID[video asset]
     end
     subgraph clip["Derived clip"]
-        NAME[BIDS-style name<br/>with sub and ses]
-        META[VideoFrameCount<br/>VideoCodec]
-        SRC[SourceDatasets<br/>entry]
+        NAME[BIDS-style name with sub and ses]
+        META[VideoFrameCount VideoCodec]
+        SRC[SourceDatasets entry]
     end
     DS --> SRC
     SUB --> NAME
