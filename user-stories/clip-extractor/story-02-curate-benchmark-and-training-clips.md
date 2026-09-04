@@ -1,11 +1,11 @@
 # Story 2: Curate benchmark and training clips
 
 
-**Persona:** Pose estimation researcher, working with the Behavioral Annotation Task Force.
+**Persona:** Scientific researcher using pose estimation as a part of analysis pipeline.
 
-> As a **pose estimation researcher**, I want to pull short, representative clips out of many long recordings, so that the task force can assemble benchmark sets and annotation batches from moments that matter rather than from whole sessions.
+> As a **scientist using pose estimation**, I want to pull short, representative clips out of many long recordings, so that the task force can assemble benchmark sets and annotation batches from moments that matter rather than from whole sessions.
 
-**Why it matters.** The Behavioral Annotation Task Force is building a centralized collection of rodent videos for crowdsourced labeling, with milestones measured in millions of labeled frames. Annotators and annotation tools work far better on focused clips than on hour-long files. Someone has to choose those clips, and the person best placed to choose is the researcher who knows where the interesting behavior is.
+**Why it matters.** The Behavioral Annotation Task Force is building a centralized collection of animal videos for crowdsourced labeling, with milestones measured in millions of labeled frames. Annotators and annotation tools work far better on focused clips than on hour-long files. Someone has to choose those clips, and the person best placed to choose is the researcher who knows where the interesting behavior is.
 
 **Acceptance criteria**
 
