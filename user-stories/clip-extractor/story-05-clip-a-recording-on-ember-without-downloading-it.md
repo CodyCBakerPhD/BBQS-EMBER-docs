@@ -1,7 +1,7 @@
 # Story 5: Clip a recording on EMBER without downloading it
 
 
-**Persona:** Data steward; any signed-in EMBER user.
+**Persona:** Data contributor; any signed-in EMBER user.
 
 > As an **EMBER user**, I want to open a video that already lives in a Dandiset, scrub through it, and extract a clip, so that I never have to pull a multi-gigabyte file down to my laptop just to get a few seconds of it.
 
