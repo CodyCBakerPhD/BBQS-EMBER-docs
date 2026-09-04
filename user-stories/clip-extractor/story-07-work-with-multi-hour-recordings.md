@@ -15,7 +15,7 @@
 
 ```mermaid
 flowchart TB
-    A[Load recording] --> B{Duration over about 30 minutes?}
+    A[Load recording] --> B{Duration over 30 minutes?}
     B -- no --> C[Full timeline every frame reachable directly]
     B -- yes --> D[Sliding window timeline]
     D --> E[Coarse scrub across the whole recording]
