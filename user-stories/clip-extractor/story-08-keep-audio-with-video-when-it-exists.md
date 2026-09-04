@@ -13,6 +13,9 @@
 - Derived clips keep the video suffix appropriate for what they contain.
 - The presence or absence of audio does not change the frame-accuracy of the selection.
 
+> [!NOTE]
+> Snippet extraction does not currently carry synchronized audio: a derived clip is video only. The audio is recorded as provenance on the copy of the source, through the `_audiovideo` suffix, rather than travelling with the clip.
+
 ```mermaid
 flowchart TD
     A[Inspect source tracks] --> B{Audio track present?}
