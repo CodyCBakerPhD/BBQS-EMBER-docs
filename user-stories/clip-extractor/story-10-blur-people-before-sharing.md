@@ -13,6 +13,9 @@
 - A blur tool is available that lets me mask a region of the frame, and the mask is applied to the exported clip or still.
 - The warning and blur tool do not depend on my remembering to turn them on; they appear because of the dataset flag.
 
+> [!NOTE]
+> The blur tool is currently aimed at local videos that have not yet been de-identified. EMBER-DANDI holds only already de-identified content, so a recording streamed from the archive should not need redaction; the warning and the blur exist for the step before data reaches the archive.
+
 ```mermaid
 %%{init: {"sequence": {"mirrorActors": false}}}%%
 sequenceDiagram
