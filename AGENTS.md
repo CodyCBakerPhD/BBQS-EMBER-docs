@@ -22,4 +22,15 @@ GitHub renders Mermaid natively in markdown files, so GitHub-only pages can use 
 
 - **Do not insert `<br/>` (or `<br>`) line breaks in node or edge labels.** The renderer sizes and wraps labels on its own and the result looks better without manual breaks. Write labels as plain single-line text.
 - Keep labels short enough to read at a glance; move detail into the surrounding prose instead of the diagram.
-- Diagram types known to render on GitHub and used here: `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, `mindmap`.
+- Diagram types known to render on GitHub and used here: `flowchart`, `sequenceDiagram`, `stateDiagram-v2`.
+
+### Never let label text sit on top of a line
+
+Mermaid draws message and edge labels with no background fill, so any line running behind a label shows through the gaps between the letters and makes it hard to read. Keep text and lines apart:
+
+- **Sequence diagrams.** Order the participants so every message runs between two neighbouring lifelines; an arrow that spans a third participant puts its label on top of that participant's lifeline. Reordering is usually enough, and it is what story 1 does.
+- **Self-messages.** A self-message (`A->>A: ...`) always centres its label on its own lifeline. Use `Note over A: ...` instead: notes are drawn as a filled box, so nothing shows through. Story 4 does this.
+- **Flowcharts.** Edge labels are drawn with a background box, so they sit on the line cleanly and need no special handling.
+- Set `%%{init: {"sequence": {"mirrorActors": false}}}%%` on sequence diagrams so the participant row is drawn once, at the top, rather than repeated at the bottom.
+
+After changing a diagram, render it and look at it before pushing; a label that overlaps a lifeline is easy to miss when reading only the source.

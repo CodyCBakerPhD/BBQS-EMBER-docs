@@ -29,7 +29,7 @@ sequenceDiagram
     W->>CE: Scrub to the exemplary frame
     W->>CE: Select "frame" (single still)
     CE-->>W: Still image with source, subject, session, and frame index
-    W->>W: Embed link in skeleton definition document
+    Note over W: Embed link in skeleton definition document
 ```
 
 ---
