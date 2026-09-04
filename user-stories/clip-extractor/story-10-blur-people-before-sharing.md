@@ -1,9 +1,9 @@
 # Story 10: Blur people before sharing
 
 
-**Persona:** Researcher working with human subjects video.
+**Persona:** Researcher working with videos involving human subjects.
 
-> As a **researcher working with human subjects data**, I want the tool to warn me when the dataset is flagged as containing human subjects and to give me a blur tool, so that I can redact faces or identifying features before a clip goes anywhere.
+> As a **researcher working with data involving human subjects**, I want the tool to warn me when the dataset is flagged as containing human subjects and to give me a blur tool, so that I can redact faces or identifying features before a clip goes anywhere.
 
 **Why it matters.** BBQS includes human intracranial and behavioral studies where video of participants is a core modality. The [data standardization guide](../../docs/user-guide/data-standardization.md) already cautions against sending PHI/PII to online validators. The same care has to apply to clips: a three-second excerpt of a participant's face is still identifiable.
 
