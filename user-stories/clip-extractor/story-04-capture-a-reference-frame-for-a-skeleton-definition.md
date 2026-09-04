@@ -3,7 +3,7 @@
 
 **Persona:** Task force or working group member.
 
-> As a **member of a standards working group**, I want to grab a single, exact frame from any recording I can access on EMBER, so that skeleton definitions and annotation guidelines can point at real examples instead of drawings.
+> As a **member of a standards working group**, I want to grab a single, exact frame from any recording I can access on EMBER, so that skeleton definitions and annotation guidelines can link to real examples instead of drawings.
 
 **Why it matters.** The Behavioral Annotation Task Force has called for rigorous, anatomically justified standard skeleton definitions. Writing such a definition means saying "this is what we mean by the left hind paw keypoint on this species in this camera view" and showing it. That requires precise frames from real recordings across labs, which in turn requires being able to open those recordings without downloading them.
 
@@ -12,6 +12,7 @@
 - I can select a single frame, rather than a range, and export it as a still image.
 - Frame extraction works even in environments where full video re-encoding is not available, because a still does not require it.
 - The still keeps enough context (source dataset, subject, session, frame index) that a reader of the guideline can find the original.
+- Once the frame is in the archive I get a stable link to it, so a guideline can embed or cite the archived frame rather than carry a loose copy that drifts from its source.
 - I can do this for a recording on EMBER while signed in, without first copying the file to my machine.
 
 ```mermaid
@@ -28,7 +29,7 @@ sequenceDiagram
     CE->>E: Stream video
     W->>CE: Scrub to the exemplary frame
     W->>CE: Select "frame" (single still)
-    CE-->>W: Still image with source, subject, session, and frame index
+    CE-->>W: Still image and a link, with source, subject, session, and frame index
     Note over W: Embed link in skeleton definition document
 ```
 
