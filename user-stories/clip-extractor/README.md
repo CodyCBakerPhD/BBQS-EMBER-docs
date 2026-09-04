@@ -91,7 +91,7 @@ flowchart TB
 | Persona | Short description | Typical need |
 |---|---|---|
 | **Pose estimation researcher** | Trains or evaluates SLEAP, DeepLabCut, or LightPose models on BBQS recordings. | Share a failure case or a benchmark segment with the exact frame indices and pose overlay intact. |
-| **Data steward for a BBQS lab** | Responsible for getting the lab's data onto EMBER in standard form. | Produce clips for demonstration purposes. |
+| **Data contributor for a BBQS lab** | Responsible for getting the lab's data onto EMBER in standard form. | Produce clips for demonstration purposes. |
 | **Task force or working group member** | Reviews examples across labs to define standards such as skeleton definitions. | Grab a representative frame from any accessible recording on EMBER without downloading the entire file. |
 | **Compliance-minded PI** | Works with human subjects data or embargoed datasets. | Be confident that nothing leaves the browser unintentionally and that identifiable content can be blurred before sharing. |
 
@@ -139,9 +139,9 @@ Needs that the task force raised, or that follow naturally from the stories abov
 | Story | Theme | Status | Tracking |
 |---|---|---|---|
 | As a researcher, I want to see pose overlays for recordings streamed from EMBER, using derivative pose data already stored in the archive, so that I do not need a local copy of the pose file. | Pose estimation | Planned | [clip-extractor#46](https://github.com/brain-bbqs/clip-extractor/issues/46) |
-| As a data steward, when I clip a video that is already standardized in BEP047 on EMBER, I want device and acquisition metadata that cannot be determined from the video itself to be copied from the source sidecar, so that the derivative is as well-described as its parent. | Archive workflows | Planned | [clip-extractor#48](https://github.com/brain-bbqs/clip-extractor/issues/48) |
-| As a data steward, when uploading a derivative back into the same Dandiset it came from, I want the tool to write only the derivative and not a duplicate of the source, so that the archive stays free of redundant copies. | Archive workflows | Planned | [clip-extractor#48](https://github.com/brain-bbqs/clip-extractor/issues/48) |
-| As a data steward, I want the derivative to carry full BEP028 provenance describing the tool, version, parameters, and source, so that the archive can answer "how was this produced?" in a machine-readable way. | Privacy and provenance | Planned | [clip-extractor#42](https://github.com/brain-bbqs/clip-extractor/issues/42) |
+| As a data contributor, when I clip a video that is already standardized in BEP047 on EMBER, I want device and acquisition metadata that cannot be determined from the video itself to be copied from the source sidecar, so that the derivative is as well-described as its parent. | Archive workflows | Planned | [clip-extractor#48](https://github.com/brain-bbqs/clip-extractor/issues/48) |
+| As a data contributor, when uploading a derivative back into the same Dandiset it came from, I want the tool to write only the derivative and not a duplicate of the source, so that the archive stays free of redundant copies. | Archive workflows | Planned | [clip-extractor#48](https://github.com/brain-bbqs/clip-extractor/issues/48) |
+| As a data contributor, I want the derivative to carry full BEP028 provenance describing the tool, version, parameters, and source, so that the archive can answer "how was this produced?" in a machine-readable way. | Privacy and provenance | Planned | [clip-extractor#42](https://github.com/brain-bbqs/clip-extractor/issues/42) |
 
 ## What the tool is not
 

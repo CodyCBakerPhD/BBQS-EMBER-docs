@@ -1,7 +1,7 @@
 # Story 12: Record where a clip came from
 
 
-**Persona:** Data steward; anyone who receives a clip.
+**Persona:** Data contributor; anyone who receives a clip.
 
 > As a **person who receives or finds a clip**, I want the clip to say which recording, subject, session, dataset, and frame range it was taken from, so that I can go back to the original and trust what I am looking at.
 

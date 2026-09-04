@@ -1,7 +1,7 @@
 # Story 8: Keep audio with video when it exists
 
 
-**Persona:** Data steward; researcher working with vocalization or multimodal recordings.
+**Persona:** Data contributor; researcher working with vocalization or multimodal recordings.
 
 > As a **researcher with audio-and-video recordings**, I want the tool to recognize when a recording has an audio track and name and handle the output accordingly, so that the archive copy correctly reflects what the source actually contains.
 

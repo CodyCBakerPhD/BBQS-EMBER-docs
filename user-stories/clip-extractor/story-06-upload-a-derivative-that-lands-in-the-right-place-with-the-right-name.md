@@ -1,9 +1,9 @@
 # Story 6: Upload a derivative that lands in the right place with the right name
 
 
-**Persona:** Data steward for a BBQS lab.
+**Persona:** Data contributor for a BBQS lab.
 
-> As a **data steward**, I want the clip I extracted to be uploaded straight into my lab's Dandiset with a BIDS-style name and derivative layout, so that it is discoverable and standard without me hand-editing filenames or running the DANDI CLI for a single file.
+> As a **data contributor**, I want the clip I extracted to be uploaded straight into my lab's Dandiset with a BIDS-style name and derivative layout, so that it is discoverable and standard without me hand-editing filenames or running the DANDI CLI for a single file.
 
 **Why it matters.** The [data standardization guide](../../docs/user-guide/data-standardization.md) describes the BIDS layout and naming that EMBER expects. Following it by hand for a single derived clip is error-prone and discouraging. If the tool that produced the clip also knows the source subject, session, and dataset, it can do the naming correctly every time.
 
