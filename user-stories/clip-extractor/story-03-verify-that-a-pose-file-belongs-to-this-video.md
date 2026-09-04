@@ -1,9 +1,9 @@
 # Story 3: Verify that a pose file belongs to this video
 
 
-**Persona:** Pose estimation researcher; behavioral annotator.
+**Persona:** Scientific researcher using pose estimation as a part of analysis pipeline.
 
-> As a **pose estimation researcher**, I want the tool to tell me when the pose file I loaded does not match the video I am looking at, so that I do not share or archive a clip whose overlay describes a different recording.
+> As a **scientist using pose estimation**, I want the tool to tell me when the pose file I loaded does not match the video I am looking at, so that I do not share or archive a clip whose overlay describes a different recording.
 
 **Why it matters.** Pose files and videos get separated. Filenames drift, sessions get re-exported, and a `.slp` from one recording is easily dropped onto another. An overlay that is subtly wrong is worse than no overlay, because it looks authoritative.
 
