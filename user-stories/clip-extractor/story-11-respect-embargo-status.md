@@ -1,6 +1,9 @@
 # Story 11: Respect embargo status
 
 
+> [!WARNING]
+> **Not yet implemented.** This story describes intended behaviour, not what the tool does today. Do not rely on the tool to stop an upload into a dataset where a derivative does not belong; check the destination yourself.
+
 **Persona:** Data contributor; compliance-minded PI.
 
 > As a **data contributor**, I want the tool to only allow uploads into Dandisets where adding a derivative is appropriate, and to tell me clearly when it is not, so that I cannot accidentally alter a published dataset from a browser tool.
