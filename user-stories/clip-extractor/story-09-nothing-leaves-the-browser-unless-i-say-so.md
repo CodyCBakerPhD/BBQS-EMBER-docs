@@ -14,7 +14,7 @@
 - Saving locally is always available, even when signed out or when I have no Dandiset to upload to.
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph local["Your machine (browser)"]
         A[Local video file] --> B[Decode]
         B --> C[Scrub and select]

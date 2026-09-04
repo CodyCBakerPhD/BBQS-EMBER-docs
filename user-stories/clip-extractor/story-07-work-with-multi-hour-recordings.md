@@ -14,7 +14,7 @@
 - Marking a range at hour three yields the same frame-accurate result as marking one at minute three.
 
 ```mermaid
-flowchart LR
+flowchart TB
     A[Load recording] --> B{Duration over about 30 minutes?}
     B -- no --> C[Full timeline every frame reachable directly]
     B -- yes --> D[Sliding window timeline]

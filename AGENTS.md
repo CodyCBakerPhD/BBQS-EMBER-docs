@@ -22,6 +22,7 @@ GitHub renders Mermaid natively in markdown files, so GitHub-only pages can use 
 
 - **Do not insert `<br/>` (or `<br>`) line breaks in node or edge labels.** The renderer sizes and wraps labels on its own and the result looks better without manual breaks. Write labels as plain single-line text.
 - Keep labels short enough to read at a glance; move detail into the surrounding prose instead of the diagram.
+- **Lay flowcharts out vertically** (`flowchart TB`, or `TD`). A left-to-right chart grows as wide as the longest path, which forces horizontal scrolling on a laptop or phone; the same chart top-to-bottom stays within the reading column and scrolls the way a page normally does. Use `LR` only for a chart small enough to stay narrow, and check the rendered width before settling on it. Sequence diagrams are inherently horizontal, so keep the number of participants down instead.
 - Diagram types known to render on GitHub and used here: `flowchart`, `sequenceDiagram`, `stateDiagram-v2`.
 
 ### Never let label text sit on top of a line
