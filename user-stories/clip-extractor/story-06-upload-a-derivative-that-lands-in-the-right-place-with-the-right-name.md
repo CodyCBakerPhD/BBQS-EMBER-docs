@@ -3,7 +3,7 @@
 
 **Persona:** Data contributor for a BBQS lab.
 
-> As a **data contributor**, I want the clip I extracted to be uploaded straight into my lab's Dandiset with a BIDS-style name and derivative layout, so that it is discoverable and standard without me hand-editing filenames or running the DANDI CLI for a single file.
+> As a **data contributor**, I want the clip I extracted to be uploaded straight into my lab's Dandiset with a valid BIDS organization, so that it is discoverable without me hand-editing filenames or running the DANDI CLI for a single file.
 
 **Why it matters.** The [data standardization guide](../../docs/user-guide/data-standardization.md) describes the BIDS layout and naming that EMBER expects. Following it by hand for a single derived clip is error-prone and discouraging. If the tool that produced the clip also knows the source subject, session, and dataset, it can do the naming correctly every time.
 
@@ -23,8 +23,8 @@ flowchart TD
     E1 --> N[Build BIDS-style derivative filename]
     L1 --> N
     N --> T{Snippet or frame?}
-    T -- Snippet --> V[Video clip with VideoCodec and VideoFrameCount]
-    T -- Frame --> I[Still image]
+    T -- Snippet --> V[Video clip with metadata]
+    T -- Frame --> I[Still image with metadata]
     V --> D{Signed in with an uploadable Dandiset?}
     I --> D
     D -- yes --> UP[Upload via BBQS Uploader into the Dandiset derivatives]
