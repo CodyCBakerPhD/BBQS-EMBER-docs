@@ -1,4 +1,4 @@
-# Story 12: Record where a clip came from
+# Story 11: Record where a clip came from
 
 
 **Persona:** Data contributor; anyone who receives a clip.
@@ -35,4 +35,4 @@ flowchart LR
 
 ---
 
-[All Clip Extractor stories](README.md) · Previous: [Story 11](story-11-respect-embargo-status.md)
+[All Clip Extractor stories](README.md) · Previous: [Story 10](story-10-blur-people-before-sharing.md)

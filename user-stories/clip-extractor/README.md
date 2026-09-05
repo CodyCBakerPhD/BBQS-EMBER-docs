@@ -129,8 +129,7 @@ BBQS data includes human subjects recordings and embargoed datasets. A tool that
 |---|---|
 | [Story 9: Nothing leaves the browser unless I say so](story-09-nothing-leaves-the-browser-unless-i-say-so.md) | Decode and trim locally; nothing is transmitted until an explicit upload. |
 | [Story 10: Blur people before sharing](story-10-blur-people-before-sharing.md) | Get warned on human-subjects datasets and redact faces before sharing. |
-| [Story 11: Respect embargo status](story-11-respect-embargo-status.md) | Allow uploads only where adding a derivative is appropriate, and say why when not. |
-| [Story 12: Record where a clip came from](story-12-record-where-a-clip-came-from.md) | Carry recording, subject, session, dataset, and frame range with every clip. |
+| [Story 11: Record where a clip came from](story-11-record-where-a-clip-came-from.md) | Carry recording, subject, session, dataset, and frame range with every clip. |
 
 ## Future stories
 

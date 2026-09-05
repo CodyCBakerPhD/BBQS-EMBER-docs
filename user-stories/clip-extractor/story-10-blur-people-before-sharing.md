@@ -30,4 +30,4 @@ flowchart TB
 
 ---
 
-[All Clip Extractor stories](README.md) · Previous: [Story 9](story-09-nothing-leaves-the-browser-unless-i-say-so.md) · Next: [Story 11](story-11-respect-embargo-status.md)
+[All Clip Extractor stories](README.md) · Previous: [Story 9](story-09-nothing-leaves-the-browser-unless-i-say-so.md) · Next: [Story 11](story-11-record-where-a-clip-came-from.md)
