@@ -1,14 +1,11 @@
 # Story 11: Respect embargo status
 
 
-> [!WARNING]
-> **Not yet implemented.** This story describes intended behaviour, not what the tool does today. Do not rely on the tool to stop an upload into a dataset where a derivative does not belong; check the destination yourself.
-
 **Persona:** Data contributor; compliance-minded PI.
 
-> As a **data contributor**, I want the tool to only allow uploads into Dandisets where adding a derivative is appropriate, and to tell me clearly when it is not, so that I cannot accidentally alter a published dataset from a browser tool.
+> As a **data contributor**, I want the tool to offer upload only for Dandisets that are still embargoed, and to say plainly when a destination is not eligible, so that I cannot add to a public dataset from a browser tool by accident.
 
-**Why it matters.** Once a Dandiset is published and public, changes to it should go through the normal, reviewed publication process rather than through a quick upload from a clip tool. Embargoed (not yet public) Dandisets are where in-progress derivatives belong. The tool enforcing this rule removes a whole class of accidents.
+**Why it matters.** Embargo status is about whether a Dandiset is still private to its contributors or has been released publicly. Adding to one that is already public is a different and heavier act than adding to one still in preparation, and it is not something to do by accident from a browser tool. Reading the status and gating on it removes that whole class of accident, and telling the user why the button is unavailable keeps the refusal from looking like a bug.
 
 **Acceptance criteria**
 
