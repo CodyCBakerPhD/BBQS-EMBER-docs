@@ -90,7 +90,7 @@ flowchart TB
 
 | Persona | Short description | Typical need |
 |---|---|---|
-| **Pose estimation researcher** | Trains or evaluates SLEAP, DeepLabCut, or LightPose models on BBQS recordings. | Share a failure case or a benchmark segment with the exact frame indices and pose overlay intact. |
+| **Pose estimation researcher** | Trains or evaluates SLEAP, DeepLabCut, or LightPose models on brain-behavior recordings. | Share a failure case or a benchmark segment with the exact frame indices and pose overlay intact. |
 | **Data contributor for a BBQS lab** | Responsible for getting the lab's data onto EMBER in standard form. | Produce clips for demonstration purposes. |
 | **Task force or working group member** | Reviews examples across labs to define standards such as skeleton definitions. | Grab a representative frame from any accessible recording on EMBER without downloading the entire file. |
 | **Compliance-minded PI** | Works with human subjects data or embargoed datasets. | Be confident that nothing leaves the browser unintentionally and that identifiable content can be blurred before sharing. |
