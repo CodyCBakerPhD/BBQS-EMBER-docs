@@ -1,0 +1,35 @@
+name: Deploy PR preview
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+concurrency: preview-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  deploy-preview:
+    name: Deploy preview
+    runs-on: ubuntu-latest
+    # Pull requests from forks get a read-only token, so they cannot publish a
+    # preview to gh-pages. Those PRs are still built by check-docs.yaml.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build docs
+        if: github.event.action != 'closed'
+        uses: ./.github/actions/build-docs
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./site

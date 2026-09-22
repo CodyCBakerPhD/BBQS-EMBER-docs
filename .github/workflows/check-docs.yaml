@@ -6,4 +6,11 @@ on:
 
 jobs:
   build:
-    uses: ./.github/workflows/build-docs.yaml
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build docs
+        uses: ./.github/actions/build-docs
