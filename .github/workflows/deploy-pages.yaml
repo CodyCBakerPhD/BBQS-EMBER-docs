@@ -26,8 +26,11 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           # Branch-based Pages reads the custom domain from a CNAME file at the
-          # publish root, so it must be (re)written on every deploy.
-          cname: docs.emberarchive.org
+          # publish root, so it must be (re)written on every deploy. Only the
+          # upstream repository may claim the domain; in a fork this resolves to
+          # an empty string, so no CNAME is written and the fork's own site is
+          # published at <owner>.github.io instead.
+          cname: ${{ github.repository == 'aplbrain/BBQS-EMBER-docs' && 'docs.emberarchive.org' || '' }}
           # Preserve the pr-preview/ directory published by preview.yaml,
           # which lives on the same branch as the production site.
           keep_files: true
