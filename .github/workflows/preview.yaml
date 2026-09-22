@@ -1,35 +1,73 @@
 name: Deploy PR preview
 
+# Runs after check-docs.yaml finishes building a pull request. Because
+# workflow_run executes in the context of the BASE repository, this workflow
+# gets a write token even when the pull request came from a fork - which is
+# what makes fork previews possible at all.
+#
+# SECURITY: the artifact downloaded here was produced from untrusted pull
+# request code. This workflow must never check out or execute that code; it
+# only unpacks the already-built site and publishes it. Keep it that way.
 on:
-  pull_request:
+  workflow_run:
+    workflows:
+      - Check docs
     types:
-      - opened
-      - reopened
-      - synchronize
-      - closed
+      - completed
 
-concurrency: preview-${{ github.ref }}
+concurrency: preview-${{ github.event.workflow_run.head_branch }}
 
 permissions:
   contents: write
   pull-requests: write
+  actions: read
 
 jobs:
   deploy-preview:
     name: Deploy preview
     runs-on: ubuntu-latest
-    # Pull requests from forks get a read-only token, so they cannot publish a
-    # preview to gh-pages. Those PRs are still built by check-docs.yaml.
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success'
     steps:
+      # Checks out the default branch, NOT the pull request head. The action
+      # below needs a git working copy to push the preview branch from.
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build docs
-        if: github.event.action != 'closed'
-        uses: ./.github/actions/build-docs
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-preview-site
+          path: site
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download PR number
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-preview-number
+          path: pr-number
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # The PR number arrives from an untrusted run and is interpolated into a
+      # deploy path, so reject anything that is not a plain positive integer.
+      - name: Read PR number
+        id: pr
+        run: |
+          number="$(tr -d '[:space:]' < pr-number/pr-number.txt)"
+          case "$number" in
+            '' | *[!0-9]*)
+              echo "Refusing to deploy: PR number '$number' is not numeric" >&2
+              exit 1
+              ;;
+          esac
+          echo "number=$number" >> "$GITHUB_OUTPUT"
 
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1
         with:
           source-dir: ./site
+          pr-number: ${{ steps.pr.outputs.number }}
+          action: deploy

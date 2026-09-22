@@ -50,8 +50,8 @@ The following describes the prerequisites and one-time manual steps that were ne
 
 ## Pull request previews
 
-Every pull request opened from a branch in this repository gets a live preview
-of the built site, deployed by `.github/workflows/preview.yaml` using
+Every pull request gets a live preview of the built site, **including pull
+requests from forks**, deployed with
 [`rossjrw/pr-preview-action`](https://github.com/rossjrw/pr-preview-action).
 
 - The preview is published to the `gh-pages` branch under
@@ -62,12 +62,71 @@ of the built site, deployed by `.github/workflows/preview.yaml` using
 - The preview is removed automatically when the pull request is closed or
   merged.
 
-Two caveats:
+Contributors do not need to configure anything.
 
-- Pull requests from forks are skipped, because they run with a read-only token
-  and cannot push to `gh-pages`. They are still built (without a preview) by
-  `.github/workflows/check-docs.yaml`.
-- `deploy-pages.yaml` publishes with `keep_files: true` so that it does not wipe
-  the `pr-preview/` directory. As a side effect, files deleted from the docs are
-  not removed from the live site; delete them from the `gh-pages` branch by hand
-  if that matters.
+### How fork previews work
+
+A workflow triggered by `pull_request` runs in the context of the *contributor's*
+fork and receives a read-only token, so it cannot publish anything to this
+repository. The work is therefore split across three workflows:
+
+| Workflow | Trigger | Token | Role |
+| --- | --- | --- | --- |
+| `check-docs.yaml` | `pull_request` | read-only | Builds the site from pull request code and uploads it as an artifact |
+| `preview.yaml` | `workflow_run` | write | Downloads that artifact and publishes the preview |
+| `preview-cleanup.yaml` | `pull_request_target` | write | Removes the preview when the pull request closes |
+
+`workflow_run` and `pull_request_target` both run in the context of *this*
+repository on the default branch, which is what gives them a write token for a
+fork's pull request.
+
+> [!IMPORTANT]
+> `preview.yaml` and `preview-cleanup.yaml` must never check out or execute pull
+> request code. Only `check-docs.yaml` does that, and it is read-only and holds
+> no secrets. Adding a build step or a `ref:` pointing at the pull request head
+> to either privileged workflow would hand repository write access to anyone who
+> can open a pull request.
+
+Two consequences worth understanding:
+
+- Because `workflow_run` only fires for workflow files on the default branch,
+  changes to the preview workflows cannot be fully tested in a pull request —
+  they take effect once merged to `main`.
+- The published preview is HTML built from unreviewed contributor code, served
+  from a path on `docs.emberarchive.org`. The build itself is sandboxed, so this
+  is not a route to repository secrets, but a malicious pull request could serve
+  arbitrary content from that path until it is closed.
+
+### Optional: hosting your own preview from a fork
+
+Contributors who would rather not wait for the upstream preview, or who want a
+preview before opening a pull request, can publish one from their own fork with
+`.github/workflows/fork-preview.yaml`. It is disabled by default. To enable it
+on a **public** fork:
+
+1. Go to `Actions` in your fork and enable workflows (forks ship with Actions
+   disabled).
+2. Go to `Settings` -> `Secrets and variables` -> `Actions` -> `Variables` and
+   add a repository variable `ENABLE_FORK_PREVIEW` with the value `true`.
+3. Push a branch. The workflow builds the docs and publishes them to the
+   `gh-pages` branch of your fork under `branch-preview/<branch>/`.
+4. Go to `Settings` -> `Pages` and set the source to `Deploy from a branch`,
+   selecting `gh-pages` and `/ (root)`.
+
+The preview is then served at
+`https://<your-username>.github.io/BBQS-EMBER-docs/branch-preview/<branch>/`;
+the workflow run summary prints the URL. Note that your fork's token cannot
+comment on an upstream pull request, so you will need to paste the link
+yourself. GitHub Pages on a private repository requires a paid plan.
+
+### Production deploys and `keep_files`
+
+`deploy-pages.yaml` publishes with `keep_files: true` so that it does not wipe
+the sibling `pr-preview/` directory on the same branch. As a side effect, files
+deleted from the docs are not removed from the live site; delete them from the
+`gh-pages` branch by hand if that matters.
+
+The custom domain is written to `CNAME` on every deploy, but only when the
+workflow runs in the upstream repository — a fork that syncs `main` publishes to
+its own `<owner>.github.io` URL instead of trying to claim
+`docs.emberarchive.org`.

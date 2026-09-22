@@ -4,6 +4,12 @@ on:
   pull_request:
   workflow_dispatch:
 
+# This workflow builds pull request code, including code from forks, so it is
+# deliberately read-only and holds no secrets. The built site is handed to
+# preview.yaml, which does the privileged part.
+permissions:
+  contents: read
+
 jobs:
   build:
     name: Build
@@ -14,3 +20,23 @@ jobs:
 
       - name: Build docs
         uses: ./.github/actions/build-docs
+
+      - name: Save PR number
+        if: github.event_name == 'pull_request'
+        run: echo "${{ github.event.number }}" > pr-number.txt
+
+      - name: Upload built site
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-site
+          path: site
+          retention-days: 1
+
+      - name: Upload PR number
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-number
+          path: pr-number.txt
+          retention-days: 1

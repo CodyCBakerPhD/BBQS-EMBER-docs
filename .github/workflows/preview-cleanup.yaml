@@ -1,0 +1,33 @@
+name: Remove PR preview
+
+# Teardown needs a write token, and a `pull_request` run from a fork does not
+# have one, so this uses pull_request_target to run in the base repository's
+# context.
+#
+# SECURITY: pull_request_target is only safe because this workflow never checks
+# out or executes pull request code. The checkout below is the base branch. Do
+# not add a `ref:` pointing at the pull request head, and do not add a build
+# step here.
+on:
+  pull_request_target:
+    types:
+      - closed
+
+concurrency: preview-${{ github.event.pull_request.head.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  remove-preview:
+    name: Remove preview
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Remove preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          action: remove
