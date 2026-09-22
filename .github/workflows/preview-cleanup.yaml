@@ -4,10 +4,8 @@ name: Remove PR preview
 # have one, so this uses pull_request_target to run in the base repository's
 # context.
 #
-# SECURITY: pull_request_target is only safe because this workflow never checks
-# out or executes pull request code. The checkout below is the base branch. Do
-# not add a `ref:` pointing at the pull request head, and do not add a build
-# step here.
+# SECURITY: this workflow holds a write token on an untrusted trigger. Read
+# SECURITY.md before changing it.
 on:
   pull_request_target:
     types:

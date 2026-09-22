@@ -81,11 +81,10 @@ repository on the default branch, which is what gives them a write token for a
 fork's pull request.
 
 > [!IMPORTANT]
-> `preview.yaml` and `preview-cleanup.yaml` must never check out or execute pull
-> request code. Only `check-docs.yaml` does that, and it is read-only and holds
-> no secrets. Adding a build step or a `ref:` pointing at the pull request head
-> to either privileged workflow would hand repository write access to anyone who
-> can open a pull request.
+> `preview.yaml` and `preview-cleanup.yaml` run with a write token on triggers
+> an untrusted party controls. The invariants that keep this safe, and the
+> reasoning behind them, are in [SECURITY.md](SECURITY.md). Read it before
+> changing either workflow.
 
 Two consequences worth understanding:
 

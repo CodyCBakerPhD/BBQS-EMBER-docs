@@ -5,9 +5,8 @@ name: Deploy PR preview
 # gets a write token even when the pull request came from a fork - which is
 # what makes fork previews possible at all.
 #
-# SECURITY: the artifact downloaded here was produced from untrusted pull
-# request code. This workflow must never check out or execute that code; it
-# only unpacks the already-built site and publishes it. Keep it that way.
+# SECURITY: this workflow holds a write token and consumes an artifact built
+# from untrusted code. Read SECURITY.md before changing it.
 on:
   workflow_run:
     workflows:
