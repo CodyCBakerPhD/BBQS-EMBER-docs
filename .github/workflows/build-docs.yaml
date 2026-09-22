@@ -43,7 +43,7 @@ jobs:
         with:
           name: pr-preview-site
           path: site
-          retention-days: 1
+          retention-days: 7
 
       - name: Upload PR number for preview
         if: inputs.upload-preview-artifact
@@ -51,4 +51,4 @@ jobs:
         with:
           name: pr-preview-number
           path: pr-number.txt
-          retention-days: 1
+          retention-days: 7
