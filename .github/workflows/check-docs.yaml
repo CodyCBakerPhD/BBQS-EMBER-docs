@@ -4,6 +4,14 @@ on:
   pull_request:
   workflow_dispatch:
 
+# This builds pull request code, including code from forks, so it is
+# deliberately read-only and holds no secrets. The privileged half of the
+# preview pipeline lives in preview.yaml. See SECURITY.md.
+permissions:
+  contents: read
+
 jobs:
   build:
     uses: ./.github/workflows/build-docs.yaml
+    with:
+      upload-preview-artifact: ${{ github.event_name == 'pull_request' }}
