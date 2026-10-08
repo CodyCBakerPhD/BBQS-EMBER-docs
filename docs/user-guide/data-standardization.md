@@ -76,8 +76,8 @@ NWB extensions can be found at [https://nwb-extensions.github.io](https://nwb-ex
 
 For multi-subject data (multiple subjects interacting, recorded at the same time), refer to [`ndx-multisubjects`](https://pypi.org/project/ndx-multisubjects/)
 
-!!! warning "`ndx-multisubjects`"
-    This extension is undergoing development, and currently will not pass the validator. You can still use and upload this file to EMBER-DANDI using `--validation skip` argument until the validators are updated or this extension is incorporated into core NWB.
+<!-- !!! warning "`ndx-multisubjects`"
+    This extension is undergoing development, and currently will not pass the validator. You can still use and upload this file to EMBER-DANDI using `--validation skip` argument until the validators are updated or this extension is incorporated into core NWB. -->
 ---
 ## 2. Standardization Workflow
 
@@ -103,7 +103,7 @@ Preparing your dataset involves three main steps:
 ---
 ## 3. BIDS Standard 
 
-### 1. Folder Structure (Core BIDS Template)
+### 3.1. Folder Structure (Core BIDS Template)
 
 BIDS specifies a particular set of folders and file names to organize data:
 
@@ -144,7 +144,7 @@ my_dataset/
 
 ---
 
-### 2. BIDS File Naming Rules
+### 3.2. BIDS File Naming Rules
 
 As you go, please be sure to refer to the BIDS examples: https://github.com/bids-standard/bids-examples 
 
@@ -162,10 +162,10 @@ Examples:
 
 ---
 
-### 3. Required Metadata Files for BIDS
+### 3.3. Required Metadata Files for BIDS
 
 
-#### 3.1 dataset_description.json
+#### 3.3.1 dataset_description.json
 
 ```json
 {
@@ -176,7 +176,7 @@ Examples:
 }
 ```
 
-#### 3.2 participants.tsv
+#### 3.3.2 participants.tsv
 
 ```tsv
 participant_id	age	sex
@@ -184,7 +184,7 @@ sub-01	29	M
 sub-02	34	F
 ```
 
-#### 3.3 iEEG Metadata (BEP032)
+#### 3.3.3 iEEG Metadata (BEP032)
 
 ##### channels.tsv
 
@@ -200,7 +200,7 @@ name	x	y	z
 elec01	12.3	-45.2	30.1
 ```
 
-#### 3.4 events.tsv
+#### 3.3.4 events.tsv
 
 ```tsv
 onset	duration	trial_type
@@ -208,7 +208,7 @@ onset	duration	trial_type
 2.0	1.5	response
 ```
 
-#### 3.5 Sidecar JSON Example
+#### 3.3.5 Sidecar JSON Example
 
 For an iEEG file:
 
@@ -223,7 +223,7 @@ For an iEEG file:
 
 ---
 
-### 4. Using NWB within BIDS
+### 3.4. Using NWB within BIDS
 
 If using NWB files within your project, they can be used to represent key time series data within BIDS, such as iEEG.
 
@@ -278,7 +278,7 @@ For video:
 ## 5. Validation (Required Before Upload)
 
 Data uploaded to either EMBERVault or EMBER-DANDI must be properly standardized.
-***Can this section be updated to jsut use the dandi validator?***
+<!-- ***Can this section be updated to jsut use the dandi validator?*** -->
 ### Command Line Validation for BIDS (Recommended)
 
 You can find detailed instructions on use of the BIDS validator here:

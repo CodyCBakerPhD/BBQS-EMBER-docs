@@ -2,23 +2,22 @@
 
 ## What is EMBER?
 
-EMBER is the Ecosystem for Multi-Modal Brain-behavior Experimentation and Research.
+EMBER is the Ecosystem for Multimodal Brain-behavior Experimentation and Research.
 
-The EMBER Archive supports free storage and sharing of public neurophysiological and behavioral data, prioritizing data generated as a part of the [Brain Behavior Quantification and Synchronization (BBQS) Program](https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program).
+The EMBER Archive enables storage, sharing, and analysis of multimodal neurophysiological and behavioral data, primarily supporting the [Brain Behavior Quantification and Synchronization (BBQS) Program](https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program).
 
 ## Storage and Analytics Platforms
 
 EMBER has two data storage platforms:
 
 
+- **EMBER-DANDI**: supports multimodal data from both animals and humans. Human data must not contain any PHI/PII and must be completely deidentified. 
+- **EMBER-Vault**: supports HIPAA aligned, restricted human data storage
 
-- **EMBER-DANDI**: supports multimodal data from both animals and humans. Human data must not contain any  HI/PII and must be completely deidentified. 
-- **EMBER-Vault**: HIPAA compliant, sensitive human data storage
 
+EMBER is also planning development a cloud-based analysis ecosystem cocnnected to the data storage resources:
 
-EMBER is planning development of one analytical platform:
-
-- **EMBER-Hearth**: enables sandboxed analyses in the cloud on both of these platforms. 
+- **EMBER-Hearth**: enables analysis pipelines such as spike sorting and pose estimation inference in the cloud through both of these platforms. 
 
 
 <br>
@@ -56,18 +55,19 @@ EMBER is planning development of one analytical platform:
 ## How do I upload data?
 
 1. Create an account for each appropriate storage platform using instructions in the [User Guide](../user-guide/index.md).
-2. Standardize your data.
+2. Standardize your data using community standards [Brain Imaging Data Structure (BIDS)](https://bids-specification.readthedocs.io/en/stable/) and/or [Neurodata without Borders (NWB)](https://nwb-schema.readthedocs.io/en/latest/format.html#type-specifications).
 3. Upload the standardized data to the appropriate storage platform(s) using instructions in the [User Guide](../user-guide/index.md).
+
 
 
 ### Standardizing Data
 Data standardization is required for uploading to either of the EMBER storage platforms to enable easy and accessible reuse of data by secondary users who were not involved in the original study that created the data. 
 
-The general approach is to organize your data using the BIDS schema and convert relevant data into NWB. 
+The recommended approach is to organize your dataset using the BIDS schema and convert relevant file contents per session into NWB. 
 
 BIDS broadly describes how to rename files and folders and organize them into a standardized directory. It also requires associated metadata files to help explain the experiment and data.
 
-NWB is a specific file type that can store one more modalities within it. Relevant metadata is also stored directly inside the NWB file.
+NWB is a specific file type that can store one or more modalities within it. Relevant metadata is also stored directly inside the NWB file.
 
 Here is a minimal multimodal dataset layout as an example, including iEEG in NWB formats and audio and video files:
 
@@ -104,10 +104,13 @@ my_dataset/
 
 More specific instructions for how to standardize data can be found in the [User Guide](../user-guide/index.md). 
 
-Feel free to use AI tools like ChatGPT and Codex to help you convert your data according to the standards.
+You are welcome to consult external sources (websites, LLMs, coding harnesses) to help you standardize your data, but please ensure that converted data has been checked for quality. 
+
+If you are using an AI-based or -assisted workflow, please make sure to exercise due diligence to check for quality/accuracy, understanding that it is ultimately the Principal Investigator's responsibility to make the data truly reusable by other investigators.
 
 If you need help, please reach out to [help@emberarchive.org](mailto:help@emberarchive.org).
 
+<!-- If you are a member of the **BBQS consortium**, you can also reach out to the Data Ingest Task Force by starting a discussion on the [BBQS Helpdesk](https://github.com/orgs/brain-bbqs/discussions) to request a streamlined pathway for uploading and data standardization. -->
 
 
 
