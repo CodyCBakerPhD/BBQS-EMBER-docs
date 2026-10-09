@@ -2,7 +2,7 @@
 
 ## What is EMBER?
 
-EMBER is the Ecosystem for Multimodal Brain-behavior Experimentation and Research.
+EMBER is the Ecosystem for Multi-Modal Brain-behavior Experimentation and Research.
 
 The EMBER Archive enables storage, sharing, and analysis of multimodal neurophysiological and behavioral data, primarily supporting the [Brain Behavior Quantification and Synchronization (BBQS) Program](https://braininitiative.nih.gov/research/systems-neuroscience/brain-behavior-quantification-and-synchronization-program).
 
@@ -67,7 +67,7 @@ The recommended approach is to organize your dataset using the BIDS schema and c
 
 BIDS broadly describes how to rename files and folders and organize them into a standardized directory. It also requires associated metadata files to help explain the experiment and data.
 
-NWB is a specific file type that can store one or more modalities within it. Relevant metadata is also stored directly inside the NWB file.
+NWB is a specific file type that can store one or more modalities within per experimental session. Relevant metadata is also stored directly inside the NWB file.
 
 Here is a minimal multimodal dataset layout as an example, including iEEG in NWB formats and audio and video files:
 

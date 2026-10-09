@@ -1,4 +1,42 @@
-# Data Standardization for EMBER-DANDI and EMBER-Vault
+# Information Needed to Inform Standard(s) Used
+
+The following information is used to determine best practices and what standard(s) to use for your data:
+
+- **Modalities**: types of data streams (e.g., EEG, kinematic, EMG, audio, video, annotations)
+- **Metadata**: crtical information a secondary user would need to interpret values correctly and have sufficient context for the experiment (e.g., sampling rates, channel identity, stimulus timing, events)
+- **Data Structure**: format of the data (e.g., do you have data split into different sections, are they continuous with each other, how does this structure connect to the greater context of the experiment, how are different experimental sessions represented)
+- **Data Tier**: rawness of data you are sharing (e.g., straight off the device, featurized)
+
+There can also be many nuances within the data that should be captured:
+
+- **Uniquely formatted data**: spreadsheets of detailed notes relating to certain experiment sessions
+- **Exceptions**: some recording sessions were not good, some channels were bad, some modalities were not recorded for a particular session
+- **Long chronic data**: does it make sense to split up the chronic data by hour, day, weeks? 
+
+Many of these above nuances can impact the logistical details of how data is packaged into a standard. The standardization plan suited for your data may be informed by how you actually analyze the original data. If your analysis script uses data that has been curated into a single .mat file or .h5 for instance, NWB could be a natural reflection of that. In contrast, if your analysis script pulls in data stored in modality-separated folders, BIDS may fit better. 
+
+You can see an example of reproducing analysis (figures) at [Example Standardization and Reproducibility](../example-standardization-and-reproducibility/Suthana_Zenodo.md) using data that was originally in .mat files and converted into NWB.
+
+# Data Standardization Recommendation for Animal Data and De-identified Human Data -- EMBER-DANDI
+
+<!-- Stuff from Box Note (Ch 3 - Ch 4) -->
+<!-- potentially move relevant standards section up to general.. --> 
+
+
+## Animal Data
+
+COMING SOON
+### Example 1 - Audio and Video in NWB
+
+### Example 2 - Audio and Video in BIDS
+
+## De-identified Human Data
+COMING SOON
+### Example 1 - iEEG and motion in NWB
+
+### Example 2 - iEEG and motion in hybrid BIDS/NWB
+
+# Data Standardization Recommendation for PHI/PII Human Data -- EMBER-Vault
 
 This guide walks you through a suggested procedure on how to prepare your dataset for upload using the BIDS standard, with support for common data types such as intracranial recordings, audio/video, and behavioral data, and optional use of NWB files.
 
@@ -26,7 +64,7 @@ A quick summary relevant to sensitive, multimodal human datasets (such as audio/
 
 ### BIDS Extensions Supported
 
-#### Intracranial / Microelectrode Data
+#### iEEG / EEG
 
 [https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html)
 
@@ -34,7 +72,7 @@ A quick summary relevant to sensitive, multimodal human datasets (such as audio/
 
 [https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data)
 
-#### BEP032 (iEEG / microelectrode extensions)
+#### BEP032 (microelectrode extensions)
 
 [https://bids.neuroimaging.io/extensions/beps/bep_032.html](https://bids.neuroimaging.io/extensions/beps/bep_032.html)
 
@@ -184,7 +222,7 @@ sub-01	29	M
 sub-02	34	F
 ```
 
-#### 3.3.3 iEEG Metadata (BEP032)
+#### 3.3.3 iEEG Metadata
 
 ##### channels.tsv
 
@@ -259,8 +297,8 @@ Example sidecar:
 
 ```json
 {
-  "SamplingFrequency": 48000,
-  "Microphone": "Shure SM7B"
+  "AudioSampleRate": 48000,
+  "ManufacturersModelName: "Shure SM7B"
 }
 ```
 
@@ -268,8 +306,9 @@ For video:
 
 ```json
 {
-  "FrameRate": 30,
-  "Resolution": "1920x1080"
+  "VideoFrameRate": 30,
+  "ImageWidth": "1920",
+  "ImageHeight": "1080"
 }
 ```
 
@@ -285,7 +324,7 @@ You can find detailed instructions on use of the BIDS validator here:
 
 [https://bids.neuroimaging.io/tools/validator.html]()
 
-We do not recommend using the online data validator for datasets containing PHI/PII.
+IMPORTANT: Keep in mind that some tools such as online validators may send parts of your data outside your local system. It is the job of the Principal Investigator to ensure that all data handling, especially for sensitive human data, is in alignment with existing laws, regulations, and policy, including terms of data sharing as agreed by the human participants through the informed consent process.
 
 [https://bids-validator.readthedocs.io/en/latest/user_guide/command-line.html]()
 
@@ -307,7 +346,7 @@ deno install -ERWN -g -n bids-validator jsr:@bids/validator
 deno run -ERWN jsr:@bids/validator <dataset>
 ```
 
-When using an extension, you must use the flag `--schema` with the link to the pull request specific to the extension.
+When using a BEP standard, you must use the flag `--schema` with the link to the pull request specific to the extension.
 
 #### BEP032
 
@@ -351,7 +390,7 @@ When using an extension, you must use the flag `--schema` with the link to the p
 
 - Ensure events align across modalities
 
-If your team is struggling, the EMBER archive team can help. Reach out at `info@emberarchive.org`.
+If your team is struggling, the EMBER archive team can help. Reach out at `help@emberarchive.org`.
 
 ---
 

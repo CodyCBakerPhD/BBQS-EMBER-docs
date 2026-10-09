@@ -83,8 +83,10 @@ Below, you will find a brief set of steps to help you quickly get started with N
 1. Log in to [EMBER-DANDI](https://dandi.emberarchive.org) with your approved GitHub account
 2. Select the "New Dandiset" button in the top right corner
 3. Fill out basic metadata and hit "Register Dandiset"
+4. Note that you can set your dataset to be private (embargoed) by selecting the toggle at the top. You'll be asked to set a date for the embargo to be released.
 
 <img src="https://ember-web-assets.s3.amazonaws.com/documentation-images/register_new_dandiset.png" alt="screenshot of the New Dandiset form on EMBER-DANDI website" style="width: 90%; display:block; margin-left: auto; margin-right: auto;">
+
 
 
 ### Upload data to your dandiset
@@ -109,6 +111,7 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi validate .
     dandi upload -i ember-dandi
     ```
+4. You can publish your dataset at any point by either clicking "Publish" on a draft dandiset, or "Unembargo" and then "Publish". 
 
 !!! note "Uploading Video Files"
     If using video files, replace `dandi organize "source folder"` with 

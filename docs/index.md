@@ -1,6 +1,6 @@
 # Welcome to the EMBER Archive Documentation
 
-<img src="./assets/ember-logo.png" alt="ember_logo" style="width: 30%; display:block; margin-left: auto; margin-right: auto;">
+<img src="./assets/ember-logo.png" alt="ember_logo" style="width: 20%; display:block; margin-left: auto; margin-right: auto;">
 
 # Getting Started
 
@@ -12,34 +12,31 @@ The EMBER Archive enables storage, sharing, and analysis of multimodal neurophys
 
 As you deposit data, the most important thing is to determine if your data contains sensitive human data that should *not* be shared with the public. If you have sensitive data you should upload such data to EMBER-Vault (coming soon!). Other data may go to EMBER-DANDI, where standard embargo options are available. It is your job as PI to consult with your IRB and other relevant entities to ensure that data can be shared.
 
-Details about these resources will be explained further below.
-
 Regardless of what resource you choose, the main goal is to deposit data such that a secondary user can reuse data for analyses. To accomplish this, you will need to convert your data with existing standards (NWB/BIDS). This document will also help you think through how to use these standards to best fit your data. 
 
-If you are part of a BBQS team, you can contact us for additional help/resources.
+If you are part of a BBQS team, you can contact us at [help@emberarchive.org](mailto:help@emberarchive.org) for additional help/resources.
 
-## Storage and Analytics Platforms
+---- 
+
+## Storage Platforms
 
 If your data are:
 
 
-- animal data or de-identified human data, use **EMBER-DANDI** 
-    - supports multimodal data from both animals and humans. Human data must not contain any PHI/PII and must be completely deidentified. 
-- sensitive human data **EMBER-Vault**: supports HIPAA aligned, restricted human data storage
+- animal data or de-identified human data, use **EMBER-DANDI**, which supports multimodal data from both animals and humans. Human data must not contain any PHI/PII and must be completely deidentified. 
+- sensitive human data, use  **EMBER-Vault**, which supports HIPAA aligned, restricted human data storage
 
-
-<!-- need to crop out the ember hearth part -->
 
 <br>
 <figure style="text-align: center;">
   <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
     
     <div style="width: 100%;">
-      <img src="/assets/emberdandi_vault_hearth.png"
-           alt="EMBER-DANDI, EMBER-Vault, EMBER-Hearth"
+      <img src="/assets/emberdandi_vault.png"
+           alt="EMBER-DANDI and EMBER-Vault"
            style="width: 100%;">
       <p style="font-size: 0.9em; margin-top: 4px;">
-        <strong></strong> EMBER architecture
+        <strong></strong> How EMBER is architected to support neuroscience
       </p>
     </div>
 
@@ -64,9 +61,9 @@ If your data are:
 
 ### How do I use EMBER-DANDI?
 
-1. Create an account for EMBER-DANDI as described in the [User Guide](../user-guide/index.md).
-2. Standardize your data using community standards [Brain Imaging Data Structure (BIDS)](https://bids-specification.readthedocs.io/en/stable/) and/or [Neurodata without Borders (NWB)](https://nwb-schema.readthedocs.io/en/latest/format.html#type-specifications). The first step is to [standardize your data](../user-guide/standardizing-EMBERDANDI.md)
-3. Finally, upload your standardized data to [EMBER-DANDI](../user-guide/uploading-data.md).
+1. Create an account for EMBER-DANDI as described in the [User Guide](user-guide/index.md).
+2. [Standardize your data](user-guide/standardizing-EMBERDANDI.md) using community standards [Brain Imaging Data Structure (BIDS)](https://bids-specification.readthedocs.io/en/stable/) and/or [Neurodata without Borders (NWB)](https://nwb-schema.readthedocs.io/en/latest/format.html#type-specifications).
+3. Finally, upload your standardized data to [EMBER-DANDI](user-guide/uploading-data.md).
 4. You can embargo your dataset for a desired period of time, which means it is viewable only to you and selected individuals.
 5. You can publish your dataset, making it publicly available and creating a DOI.
 
@@ -74,7 +71,7 @@ If your data are:
 
 COMING SOON
 
-Read more about it at our EMBER-Vault page, contact us for more details
+Read more about it at our [EMBER-Vault](user-guide/embervault-account.md) page, and contact us for more details at [help@emberarchive.org](mailto:help@emberarchive.org).
 
 <!-- # User Guide
 
@@ -89,7 +86,7 @@ Read more about it at our EMBER-Vault page, contact us for more details
 
 
 ### Standardizing Data
-Data standardization into BIDS and/or NWB is required for uploading to either of the EMBER storage platforms to enable easy and accessible reuse of data by secondary users who were not involved in the original study that created the data. 
+Data standardization into BIDS and/or NWB is required for uploading to either of the EMBER storage platforms to enable easy and accessible reuse of data by secondary users who were not involved in the original study that created the data. We show one example of reproducing published figures using the NWB version of a BBQS dataset at [Example Standardization and Reproducibility](example-standardization-and-reproducibility/Suthana_Zenodo.md).
 
 BIDS broadly describes how to rename files and folders and organize them into a standardized directory. It also requires associated metadata files to help explain the experiment and data.
 
@@ -98,9 +95,10 @@ NWB is a specific file type that can store one or more modalities within it. Rel
 The recommended approach for standardiziation is as follows:
 
 - If there is a data standardization scheme that you or your field is most comfortable using, then prioritize that
-- Otherwise, we recommend that you try to get your data packaged into NWB as much as possible, and then utilize BIDS as the folder/file organization scheme to capture the rest of the information
+- Otherwise, we recommend that you try to get your data packaged into NWB as much as possible, and then utilize BIDS as the folder/file organization/naming scheme to capture the rest of the information
 - If you already have multimodal data that are packaged into a single-ish file, collected at the same time point, etc., then use NWB
 - If your data are already organized in a file structure corresponding to session, subject, modality, etc., then use BIDS
+- If a bit a both, consider a hybrid option
 
 
 
@@ -138,7 +136,7 @@ my_dataset/
 
 ### I'm new to these standards - how can I get help? 
 
-More specific instructions for how to standardize data can be found in the [User Guide](../user-guide/index.md). 
+More specific instructions for how to standardize data can be found in the [User Guide](user-guide/standardizing-EMBERDANDI.md). 
 
 <!-- You are welcome to consult external sources (websites, LLMs, coding harnesses) to help you standardize your data, but please ensure that converted data has been checked for quality. 
 
@@ -150,11 +148,40 @@ If you need help, please reach out to [help@emberarchive.org](mailto:help@embera
 
 <!-- If you are a member of the **BBQS consortium**, you can also reach out to the Data Ingest Task Force by starting a discussion on the [BBQS Helpdesk](https://github.com/orgs/brain-bbqs/discussions) to request a streamlined pathway for uploading and data standardization. -->
 
+---- 
 
-### If you are interested in analysis tools
+## If you are interested in analysis tools
 
 EMBER is also planning development a cloud-based analysis ecosystem cocnnected to the data storage resources:
 
 - **EMBER-Hearth**: enables analysis pipelines such as spike sorting and pose estimation inference in the cloud through both of these platforms. 
 
 
+<br>
+<figure style="text-align: center;">
+  <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+    
+    <div style="width: 100%;">
+      <img src="/assets/emberdandi_vault_hearth.png"
+           alt="EMBER-DANDI and EMBER-Vault"
+           style="width: 100%;">
+      <p style="font-size: 0.9em; margin-top: 4px;">
+        
+      </p>
+    </div>
+
+    <!-- <div style="width: 100%;">
+      <img src="/assets/emberdandi_vault_detail.png"
+           alt="Details of EMBER-DANDI and EMBER-Vault"
+           style="width: 100%;">
+      <p style="font-size: 0.9em; margin-top: 4px;">
+        <strong>(B)</strong> EMBER-DANDI and EMBER-Vault
+      </p>
+    </div> -->
+
+  </div>
+
+  <figcaption style="margin-top: 8px;">
+   Envisioned connection of analysis platform EMBER-Hearth to EMBER's data storage platforms.
+  </figcaption>
+</figure>

@@ -16,7 +16,8 @@ EMBER accepts two standards: BIDS and NWB.
 You can choose to convert your data into either standard, or a combination of both. The important considerations are 
 
 1. **Quality and reusability** — Does the standardized dataset contain enough information for someone unfamiliar with the experiment to understand and reuse it?
-2. **Fit to the existing data structure** — Which standard requires the least unnecessary transformation from the original data representation?
+2. **Community Acceptance** - What standard does your scientific community use, or what standards is your lab most familiar with?
+3. **Fit to the existing data structure** — Which standard requires the least unnecessary transformation from the original data representation?
 
 ### Guidelines
 
@@ -29,7 +30,7 @@ You can use the following decision aid to help you decide whether your data shou
 
 If both descriptions apply to substantial portions of your dataset, consider a hybrid approach: use BIDS for the overall dataset organization and modalities that map naturally to established BIDS representations, and use NWB for integrated recordings that are better represented together.
 
-For example, in the following dataset, the raw modalities (EEG and behavioral events) are represented in separate BIDS folders. In the BIDS derivatives folder, a NWB file that combines processed EEG, events, and kinematics represents the integrated data.
+For example, in the following dataset, the raw modalities (EEG and behavioral events) are represented in separate BIDS folders. In the BIDS derivatives folder, an NWB file that combines processed EEG, events, and kinematics represents the integrated data.
 
 ```
 my_study/
@@ -74,11 +75,11 @@ my_study/
 
 ## How to Standardize
 
-### AI tools
+<!-- ### AI tools
 
-The use of AI tools to write conversion scripts is encouraged. Once you have decided on your conversion strategy, prompt your favorite AI tool with this strategy, pointing it at your unstandardized dataset. 
+The use of AI tools to write conversion scripts is encouraged. Once you have decided on your conversion strategy, prompt your favorite AI tool with this strategy, pointing it at your unstandardized dataset.  -->
 
-To help you get started, we've published some of the prompts and conversion scripts we've put together for certain datasets (link)
+To help you get started with writing conversions, we've published some of the prompts and conversion scripts we've put together for certain datasets at the [BBQS data ingest repository](https://github.com/brain-bbqs/data-ingest-task-force). You can also consult the [NWB](https://nwb-schema.readthedocs.io/en/latest/format.html#type-specifications) and [BIDS](https://bids-specification.readthedocs.io/en/stable/) documentation
 
 ### Quality Check
 
