@@ -7,7 +7,12 @@ on:
         required: false
         type: boolean
         default: false
-        description: 'Whether to upload the build as an artifact'
+        description: 'Whether to upload the build as a GitHub Pages artifact'
+      upload-preview-artifact:
+        required: false
+        type: boolean
+        default: false
+        description: 'Whether to upload the build for the PR preview pipeline'
 
 jobs:
   build:
@@ -17,23 +22,33 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v6
-        with:
-          python-version-file: ".python-version"
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-        with:
-          enable-cache: true
-
-      - name: Install python deps
-        run: uv sync --locked
-
-      - name: Build
-        run: uv run mkdocs build --strict
+      - name: Build docs
+        uses: ./.github/actions/build-docs
 
       - name: Upload Pages artifact
+        if: inputs.upload-pages-artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: site
+
+      # Handed to preview.yaml, which runs with privileges this job does not
+      # have. See SECURITY.md.
+      - name: Save PR number
+        if: inputs.upload-preview-artifact
+        run: echo "${{ github.event.number }}" > pr-number.txt
+
+      - name: Upload built site for preview
+        if: inputs.upload-preview-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-site
+          path: site
+          retention-days: 7
+
+      - name: Upload PR number for preview
+        if: inputs.upload-preview-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-preview-number
+          path: pr-number.txt
+          retention-days: 7

@@ -113,7 +113,7 @@ This covers:
 ## 1. Relevant Data Standards
 Before formatting your dataset, familiarize yourself with the standards supported by the BBQS Program and the EMBER archive (defined by the BBQS DCAIC Data Standards Working Group):
 
-[https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing]()
+<https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing>
 
 A quick summary relevant to sensitive, multimodal human datasets (such as audio/video of participants) is outlined below.
 
@@ -126,11 +126,11 @@ A quick summary relevant to sensitive, multimodal human datasets (such as audio/
 
 #### iEEG / EEG
 
-[https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html)
+<https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html>
 
 #### MEG Data
 
-[https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data)
+<https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data>
 
 #### BEP032 (microelectrode extensions)
 
@@ -153,6 +153,15 @@ Use for:
 - Video recordings (e.g., behavior, eye tracking)
 - Audio recordings (speech, environment)
 - Motion capture
+
+##### BEP044 (Stimuli)
+
+<https://bids.neuroimaging.io/extensions/beps/bep_044.html>
+
+Use for:
+
+- Stimuli presented to participants (images, audio, video, text)
+- Stimulus metadata and provenance
 
 ### NWB (Neurodata Without Borders)
 
@@ -195,8 +204,8 @@ Preparing your dataset involves three main steps:
 
 ### Step 3: Validate Locally
 
-- Use the dandi-cli (which used the NWB inspector, BIDS Validator ([https://bids.neuroimaging.io/tools/validator.html]()) etc) before uploading.
-- Please see the instructions here: [https://github.com/dandi/dandi-cli]()
+- Use the dandi-cli (which used the NWB inspector, BIDS Validator (<https://bids.neuroimaging.io/tools/validator.html>) etc) before uploading.
+- Please see the instructions here: <https://github.com/dandi/dandi-cli>
 
 ---
 ## 3. BIDS Standard 
@@ -205,11 +214,11 @@ Preparing your dataset involves three main steps:
 
 BIDS specifies a particular set of folders and file names to organize data:
 
-[https://bids.neuroimaging.io/getting_started/folders_and_files/index.html]()
+<https://bids.neuroimaging.io/getting_started/folders_and_files/index.html>
 
 More examples will be made available at:
 
-[https://github.com/brain-bbqs]()
+<https://github.com/brain-bbqs>
 
 Here is a minimal multimodal dataset layout as an example, including iEEG in NWB formats and audio and video files:
 
@@ -382,11 +391,11 @@ Data uploaded to either EMBERVault or EMBER-DANDI must be properly standardized.
 
 You can find detailed instructions on use of the BIDS validator here:
 
-[https://bids.neuroimaging.io/tools/validator.html]()
+<https://bids.neuroimaging.io/tools/validator.html>
 
 IMPORTANT: Keep in mind that some tools such as online validators may send parts of your data outside your local system. It is the job of the Principal Investigator to ensure that all data handling, especially for sensitive human data, is in alignment with existing laws, regulations, and policy, including terms of data sharing as agreed by the human participants through the informed consent process.
 
-[https://bids-validator.readthedocs.io/en/latest/user_guide/command-line.html]()
+<https://bids-validator.readthedocs.io/en/latest/user_guide/command-line.html>
 
 #### Install
 
@@ -394,7 +403,7 @@ IMPORTANT: Keep in mind that some tools such as online validators may send parts
 
 Using Deno:
 
-[https://docs.deno.com/runtime/getting_started/installation/]()
+<https://docs.deno.com/runtime/getting_started/installation/>
 
 ```bash
 deno install -ERWN -g -n bids-validator jsr:@bids/validator

@@ -1,0 +1,104 @@
+name: Deploy PR preview
+
+# Publishes the preview into a SEPARATE previews repository, so that this
+# repository's GitHub Pages setup (Source: GitHub Actions, via deploy-pages.yaml)
+# is left completely alone, and so untrusted preview content is served from a
+# different origin than the production docs.
+#
+# Triggered by workflow_run so that it executes in the context of THIS
+# repository and can read secrets, which a fork's pull_request run cannot.
+#
+# SECURITY: this workflow can read the preview deploy token and consumes an
+# artifact built from untrusted code. Read SECURITY.md before changing it.
+on:
+  workflow_run:
+    workflows:
+      - Check docs
+    types:
+      - completed
+
+concurrency: preview-${{ github.event.workflow_run.head_branch }}
+
+permissions:
+  contents: read
+  pull-requests: write
+  actions: read
+
+jobs:
+  deploy-preview:
+    name: Deploy preview
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      vars.PREVIEW_REPOSITORY != ''
+    steps:
+      # Checks out the default branch, NOT the pull request head.
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download built site
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-preview-site
+          path: site
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download PR number
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-preview-number
+          path: pr-number
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      # The PR number arrives from an untrusted run and is interpolated into a
+      # deploy path, so reject anything that is not a plain positive integer.
+      - name: Read PR number
+        id: pr
+        run: |
+          number="$(tr -d '[:space:]' < pr-number/pr-number.txt)"
+          case "$number" in
+            '' | *[!0-9]*)
+              echo "Refusing to deploy: PR number '$number' is not numeric" >&2
+              exit 1
+              ;;
+          esac
+          echo "number=$number" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy preview
+        id: preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./site
+          pr-number: ${{ steps.pr.outputs.number }}
+          action: deploy
+          deploy-repository: ${{ vars.PREVIEW_REPOSITORY }}
+          token: ${{ secrets.PREVIEW_DEPLOY_TOKEN }}
+          pages-base-url: ${{ vars.PREVIEW_BASE_URL }}
+          # The action's own sticky comment cannot work here: it calls
+          # sticky-pull-request-comment without a `number`, which then resolves
+          # the pull request from the event payload, and a workflow_run payload
+          # has none. The `pr-number` input above only feeds the deploy path.
+          # So comment: false, and the step below posts it with an explicit
+          # number. Do not re-enable this expecting a comment to appear.
+          comment: false
+          # Defaults to "Deploy preview for PR ${{ github.event.number }}",
+          # which renders with a blank number under workflow_run.
+          deploy-commit-message: >-
+            Deploy preview for PR ${{ steps.pr.outputs.number }} 🛫
+
+      - name: Comment preview URL on the pull request
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: pr-preview
+          # Required: without it this resolves the pull request from the event
+          # payload, which workflow_run does not provide.
+          number: ${{ steps.pr.outputs.number }}
+          message: |
+            🚀 Preview for this pull request is published at
+
+            ${{ steps.preview.outputs.preview-url }}
+
+            <sub>Built from ${{ github.event.workflow_run.head_sha }} to `gh-pages` in [`${{ vars.PREVIEW_REPOSITORY }}`](https://github.com/${{ vars.PREVIEW_REPOSITORY }}/tree/gh-pages). Updates on every push; not removed when the pull request closes.</sub>

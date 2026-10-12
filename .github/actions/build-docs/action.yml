@@ -1,0 +1,23 @@
+name: Build docs
+description: Install the python environment and build the MkDocs site into ./site
+
+runs:
+  using: composite
+  steps:
+    - name: Setup Python
+      uses: actions/setup-python@v6
+      with:
+        python-version-file: ".python-version"
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v7
+      with:
+        enable-cache: true
+
+    - name: Install python deps
+      shell: bash
+      run: uv sync --locked
+
+    - name: Build
+      shell: bash
+      run: uv run mkdocs build --strict
