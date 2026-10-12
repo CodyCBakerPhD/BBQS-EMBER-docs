@@ -50,7 +50,7 @@ You can see an example of reproducing analysis (figures) at [Example Standardiza
 
 COMING SOON
 ### Example 1 - Audio, Video, and pose estimation (SLEAP) in NWB
-
+<!-- 
 Let's suppose the original data is a single animal in cage with one camera and two microphones:
 
 ```
@@ -68,11 +68,11 @@ The resulting NWB structure then looks like:
 
 ```
 ```
-
+ -->
 
 ### Example 2 - Audio and Video in BIDS, and pose estimation (SLEAP) in NWB
 
-Now let's suppose we want to instead use BIDS, which would allow us to maintain the original way we had split up the experiment session. We can also keep the original data formats for audio and video files. 
+<!-- Now let's suppose we want to instead use BIDS, which would allow us to maintain the original way we had split up the experiment session. We can also keep the original data formats for audio and video files. 
 
 The BIDS layout would look like: 
 
@@ -82,10 +82,11 @@ dataset/
         ses-01/
             beh/
                audio-part1.wav
-               video-part1.mp4
+               video-part1.mp4 
                 
                
 ```
+-->
 
 ### Example 3 - Multiple animals interacting
 
@@ -96,6 +97,11 @@ COMING SOON
 
 ### Example 2 - iEEG and motion in hybrid BIDS/NWB
 
+
+
+
+
+
 # Data Standardization Recommendation for PHI/PII Human Data: EMBER-Vault
 
 This guide walks you through a suggested procedure on how to prepare your dataset for upload using the BIDS standard, with support for common data types such as intracranial recordings, audio/video, and behavioral data, and optional use of NWB files.
@@ -103,14 +109,16 @@ This guide walks you through a suggested procedure on how to prepare your datase
 This covers:
 
 <!-- 1. [The relevant standards](#1-relevant-data-standards) -->
-1. [The standardization process and examples](#2-standardization-workflow)
-2. [BIDS Standard](#3-bids-standard)
-3. [Audio/Video](#bep047-motion-audio-video)
-4. [Validation](#5-validation-required-before-upload)
-5. [Common Pitfalls](#6-common-pitfalls)
-6. [Recommended Workflow](#7-recommended-workflow-step-by-step)
-<!-- 
-## 1. Relevant Data Standards
+
+
+1. [The standardization process and examples](#1-standardization-workflow)
+2. [BIDS Standard](#2-bids-standard)
+3. [Audio/Video](#3-audio--video-bep047)
+4. [Validation](#4-validation-required-before-upload)
+5. [Common Pitfalls](#5-common-pitfalls)
+6. [Recommended Workflow](#6-recommended-workflow-step-by-step)
+
+<!-- ## 1. Relevant Data Standards
 Before formatting your dataset, familiarize yourself with the standards supported by the BBQS Program and the EMBER archive (defined by the BBQS DCAIC Data Standards Working Group):
 
 <https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing>
@@ -181,10 +189,9 @@ Recommended for:
 
 NWB extensions can be found at [https://nwb-extensions.github.io](https://nwb-extensions.github.io)
 
-For multi-subject data (multiple subjects interacting, recorded at the same time), refer to [`ndx-multisubjects`](https://pypi.org/project/ndx-multisubjects/)
+For multi-subject data (multiple subjects interacting, recorded at the same time), refer to [`ndx-multisubjects`](https://pypi.org/project/ndx-multisubjects/) -->
 
-<!-- !!! warning "`ndx-multisubjects`"
-    This extension is undergoing development, and currently will not pass the validator. You can still use and upload this file to EMBER-DANDI using `--validation skip` argument until the validators are updated or this extension is incorporated into core NWB. --> 
+
 ---
 ## 1. Standardization Workflow
 
@@ -208,9 +215,9 @@ Preparing your dataset involves three main steps:
 - Please see the instructions here: <https://github.com/dandi/dandi-cli>
 
 ---
-## 3. BIDS Standard 
+## 2. BIDS Standard 
 
-### 3.1. Folder Structure (Core BIDS Template)
+### 2.1. Folder Structure (Core BIDS Template)
 
 BIDS specifies a particular set of folders and file names to organize data:
 
@@ -251,7 +258,7 @@ my_dataset/
 
 ---
 
-### 3.2. BIDS File Naming Rules
+### 2.2. BIDS File Naming Rules
 
 As you go, please be sure to refer to the BIDS examples: https://github.com/bids-standard/bids-examples 
 
@@ -269,10 +276,10 @@ Examples:
 
 ---
 
-### 3.3. Required Metadata Files for BIDS
+### 2.3. Required Metadata Files for BIDS
 
 
-#### 3.3.1 dataset_description.json
+#### 2.3.1 dataset_description.json
 
 ```json
 {
@@ -283,7 +290,7 @@ Examples:
 }
 ```
 
-#### 3.3.2 participants.tsv
+#### 2.3.2 participants.tsv
 
 ```tsv
 participant_id	age	sex
@@ -291,7 +298,7 @@ sub-01	29	M
 sub-02	34	F
 ```
 
-#### 3.3.3 iEEG Metadata
+#### 2.3.3 iEEG Metadata
 
 ##### channels.tsv
 
@@ -307,7 +314,7 @@ name	x	y	z
 elec01	12.3	-45.2	30.1
 ```
 
-#### 3.3.4 events.tsv
+#### 2.3.4 events.tsv
 
 ```tsv
 onset	duration	trial_type
@@ -315,7 +322,7 @@ onset	duration	trial_type
 2.0	1.5	response
 ```
 
-#### 3.3.5 Sidecar JSON Example
+#### 2.3.5 Sidecar JSON Example
 
 For an iEEG file:
 
@@ -330,7 +337,7 @@ For an iEEG file:
 
 ---
 
-### 3.4. Using NWB within BIDS
+### 2.4. Using NWB within BIDS
 
 If using NWB files within your project, they can be used to represent key time series data within BIDS, such as iEEG.
 
@@ -355,7 +362,7 @@ When combining these standards, our key recommendations are:
 
 ---
 
-## 4. Audio / Video (BEP047)
+## 3. Audio / Video (BEP047)
 
 Supported formats:
 
@@ -383,7 +390,7 @@ For video:
 
 ---
 
-## 5. Validation (Required Before Upload)
+## 4. Validation (Required Before Upload)
 
 Data uploaded to either EMBERVault or EMBER-DANDI must be properly standardized.
 <!-- ***Can this section be updated to just use the dandi validator?*** -->
@@ -441,7 +448,7 @@ When using a BEP standard, you must use the flag `--schema` with the link to the
 
 ---
 
-## 6. Common Pitfalls
+## 5. Common Pitfalls
 
 ### Incorrect filenames
 
@@ -463,7 +470,7 @@ If your team is struggling, the EMBER archive team can help. Reach out at `help@
 
 ---
 
-## 7. Recommended Workflow (Step-by-Step)
+## 6. Recommended Workflow (Step-by-Step)
 
 1. Prepare raw data
     - Export from acquisition systems
