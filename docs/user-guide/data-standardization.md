@@ -9,26 +9,86 @@ The following information is used to determine best practices and what standard(
 
 There can also be many nuances within the data that should be captured:
 
-- **Uniquely formatted data**: spreadsheets of detailed notes relating to certain experiment sessions
+- **Uniquely formatted data**: example: spreadsheets of detailed notes relating to certain experiment sessions
 - **Exceptions**: some recording sessions were not good, some channels were bad, some modalities were not recorded for a particular session
 - **Long chronic data**: does it make sense to split up the chronic data by hour, day, weeks? 
 
-Many of these above nuances can impact the logistical details of how data is packaged into a standard. The standardization plan suited for your data may be informed by how you actually analyze the original data. If your analysis script uses data that has been curated into a single .mat file or .h5 for instance, NWB could be a natural reflection of that. In contrast, if your analysis script pulls in data stored in modality-separated folders, BIDS may fit better. 
+Many of these above nuances can impact the logistical details of how data is packaged into a standard. The standardization plan and packaging strategy suited for your data may be informed by how you actually analyze the original data. If your analysis script uses data that has been curated into a single .mat file or .h5 for instance, NWB could be a natural reflection of that. In contrast, if your analysis script pulls in data stored in modality-separated folders, BIDS may fit better. 
 
 You can see an example of reproducing analysis (figures) at [Example Standardization and Reproducibility](../example-standardization-and-reproducibility/Suthana_Zenodo.md) using data that was originally in .mat files and converted into NWB.
 
-# Data Standardization Recommendation for Animal Data and De-identified Human Data -- EMBER-DANDI
+???+ info "Relevant Standards"
+    Before formatting your dataset, familiarize yourself with the standards supported by the BBQS Program and the EMBER archive (defined by the BBQS DCAIC Data Standards Working Group) using the [BBQS standardization document](ttps://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing).
 
-<!-- Stuff from Box Note (Ch 3 - Ch 4) -->
-<!-- potentially move relevant standards section up to general.. --> 
+
+    A quick summary relevant to common data modalities is outlined below:
+
+    ??? question "BIDS: Brain Imaging Data Structure"
+        - [BIDS specification](https://bids.neuroimaging.io/): Defines folder structure, file naming, file types and metadata conventions for different data types
+        - BIDS extensions:
+            - [iEEG/EEG](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/intracranial-electroencephalography.html)
+            - [MEG Data](https://bids-specification.readthedocs.io/en/stable/modality-specific-files/magnetoencephalography.html#meg-recording-data)
+            - [BEP 032 (microelectrode extension)](https://bids.neuroimaging.io/extensions/beps/bep_032.html), used for depth electrodes, microelectrode arrays, and spike/LFP recordings
+            - [BEP 047 (motion, audio, video)](https://bids.neuroimaging.io/extensions/beps/bep_047.html), used for video recordings (e.g., behavior, eye tracking), audio recordings (speech, environment), and motion capture
+    ??? question "NWB: Neurodata Without Borders" 
+        - [NWB specification](https://www.nwb.org/), well-suited for spike times, LFP, Rich electrophysiology metadata,general time series, all-in-one file approach, compatible with several [analysis and visualization tools]().
+        - [NWB in Python (`pynwb`)]()
+        - [NWB in MATLAB (`matnwb`)]()
+        - [NWB extensions](https://nwb-extensions.github.io):
+            - [pose estimation (`ndx-pose`)]()
+            - [multiple subjects interacting together (`ndx-multisubjects`)](https://pypi.org/project/ndx-multisubjects/)
+            - [audio (`ndx-sound`)]()
+        - [streamlined converters in Python (`neuroconv`)]()
+    !!! warning "Important"
+        If using NWB files, we recommend the files should still be organized within a BIDS structure.
+
+
+# Data Standardization Recommendation for Animal Data and De-identified Human Data: EMBER-DANDI
 
 
 ## Animal Data
 
 COMING SOON
-### Example 1 - Audio and Video in NWB
+### Example 1 - Audio, Video, and pose estimation (SLEAP) in NWB
 
-### Example 2 - Audio and Video in BIDS
+Let's suppose the original data is a single animal in cage with one camera and two microphones:
+
+```
+myExperimentSession/
+
+
+```
+
+
+Each of the audio and video files in the folder1 in myExperiment hold data that is continuous in time with the files of folder2, which is continuous with folder3 and so and and so forth. Altogether, folders 1 - 5 constitute a single recording session. This means that all the data should be contained inside a single NWB file.
+
+To make it easier for a secondary user to parse the data, then, we will concatenate all video files together, all audio files together, and all pose data together within the single NWB file. 
+
+The resulting NWB structure then looks like:
+
+```
+```
+
+
+### Example 2 - Audio and Video in BIDS, and pose estimation (SLEAP) in NWB
+
+Now let's suppose we want to instead use BIDS, which would allow us to maintain the original way we had split up the experiment session. We can also keep the original data formats for audio and video files. 
+
+The BIDS layout would look like: 
+
+```
+dataset/
+    sub-01/
+        ses-01/
+            beh/
+               audio-part1.wav
+               video-part1.mp4
+                
+               
+```
+
+### Example 3 - Multiple animals interacting
+
 
 ## De-identified Human Data
 COMING SOON
@@ -36,20 +96,20 @@ COMING SOON
 
 ### Example 2 - iEEG and motion in hybrid BIDS/NWB
 
-# Data Standardization Recommendation for PHI/PII Human Data -- EMBER-Vault
+# Data Standardization Recommendation for PHI/PII Human Data: EMBER-Vault
 
 This guide walks you through a suggested procedure on how to prepare your dataset for upload using the BIDS standard, with support for common data types such as intracranial recordings, audio/video, and behavioral data, and optional use of NWB files.
 
 This covers:
 
-1. [The relevant standards](#1-relevant-data-standards)
-2. [The standardization process and examples](#2-standardization-workflow)
-3. [BIDS Standard](#3-bids-standard)
-4. [Audio/Video](#bep047-motion-audio-video)
-5. [Validation](#5-validation-required-before-upload)
-6. [Common Pitfalls](#6-common-pitfalls)
-7. [Recommended Workflow](#7-recommended-workflow-step-by-step)
-
+<!-- 1. [The relevant standards](#1-relevant-data-standards) -->
+1. [The standardization process and examples](#2-standardization-workflow)
+2. [BIDS Standard](#3-bids-standard)
+3. [Audio/Video](#bep047-motion-audio-video)
+4. [Validation](#5-validation-required-before-upload)
+5. [Common Pitfalls](#6-common-pitfalls)
+6. [Recommended Workflow](#7-recommended-workflow-step-by-step)
+<!-- 
 ## 1. Relevant Data Standards
 Before formatting your dataset, familiarize yourself with the standards supported by the BBQS Program and the EMBER archive (defined by the BBQS DCAIC Data Standards Working Group):
 
@@ -115,9 +175,9 @@ NWB extensions can be found at [https://nwb-extensions.github.io](https://nwb-ex
 For multi-subject data (multiple subjects interacting, recorded at the same time), refer to [`ndx-multisubjects`](https://pypi.org/project/ndx-multisubjects/)
 
 <!-- !!! warning "`ndx-multisubjects`"
-    This extension is undergoing development, and currently will not pass the validator. You can still use and upload this file to EMBER-DANDI using `--validation skip` argument until the validators are updated or this extension is incorporated into core NWB. -->
+    This extension is undergoing development, and currently will not pass the validator. You can still use and upload this file to EMBER-DANDI using `--validation skip` argument until the validators are updated or this extension is incorporated into core NWB. --> 
 ---
-## 2. Standardization Workflow
+## 1. Standardization Workflow
 
 Preparing your dataset involves three main steps:
 

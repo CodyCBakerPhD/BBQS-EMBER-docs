@@ -1,6 +1,8 @@
 # EMBER-Vault: Account Setup 
 
-COMING SOON! This documentation is meant to give a sense of capabilities. 
+
+!!! note "COMING SOON! This documentation is meant to give a sense of capabilities"
+    EMBER-Vault is in active development and is currently undergoing beta testing with a small subset of users. If you are interested in testing EMBER-Vault in this phase or have any current needs for sensitive human data storage, please contact us at help@emberarchive.org."
 
 <!-- Guide policies! -->
 <!-- need to change to future tense -->
@@ -9,7 +11,7 @@ EMBER-Vault is the subsystem of the EMBER archive designed to store and control 
 
 For more in-depth information on the recommended data standardization workflow, see the guide on [data standardization](data-standardization.md)
 
-Your team will standardize and validate data client side, then upload to the EMBER-Vault archive using Globus. This resource is under active development, and we anticipate EMBER-Vault will be available soon!
+This resource is under active development, and we anticipate EMBER-Vault will be available soon!
 
 ---
 

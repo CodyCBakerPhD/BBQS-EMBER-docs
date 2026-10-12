@@ -5,23 +5,23 @@ The ultimate goal for standardizing data is to enable secondary users to
 1. reproduce previous results (e.g., figures from papers) and 
 2. reuse data for new analyses or models.
 
-# What standards are accepted?
-EMBER accepts two standards: BIDS and NWB. 
+
+# Which standard should I use for my data?
+
+EMBER accepts data packaged according to two standards: BIDS and NWB. 
 
 - **BIDS (Brain Imaging Data Specification)** describes how to name files and organize them into appropriately named folders. It also requires metadata to describe data and the experiment. 
 - **NWB (Neurodata without Borders)** is a single file that can hold multiple data streams and associated metadata that correspond to a single experimental session.
 
-## Which standard should I use for my data?
-
-You can choose to convert your data into either standard, or a combination of both. The important considerations are 
+You can choose to convert your data into either standard, or a combination of both. The important considerations are: 
 
 1. **Quality and reusability** — Does the standardized dataset contain enough information for someone unfamiliar with the experiment to understand and reuse it?
 2. **Community Acceptance** - What standard does your scientific community use, or what standards is your lab most familiar with?
 3. **Fit to the existing data structure** — Which standard requires the least unnecessary transformation from the original data representation?
 
-### Guidelines
+## Guidelines
 
-You can use the following decision aid to help you decide whether your data should be converted into BIDS, NWB, or some hybrid.
+You can use the following decision aid to help you decide whether your data should be converted into BIDS, NWB, or some hybrid.  For more details, also refer to the [Guidelines for BBQS Data Standards](https://docs.google.com/document/d/1vIJ01La9G76FfGywS3IbG4o1GR4qquS31MoJ2B4_4os/edit?usp=sharing).
 
 | Data characteristic | Standard | 
 | -- | -- |
@@ -79,9 +79,11 @@ my_study/
 
 The use of AI tools to write conversion scripts is encouraged. Once you have decided on your conversion strategy, prompt your favorite AI tool with this strategy, pointing it at your unstandardized dataset.  -->
 
-To help you get started with writing conversions, we've published some of the prompts and conversion scripts we've put together for certain datasets at the [BBQS data ingest repository](https://github.com/brain-bbqs/data-ingest-task-force). You can also consult the [NWB](https://nwb-schema.readthedocs.io/en/latest/format.html#type-specifications) and [BIDS](https://bids-specification.readthedocs.io/en/stable/) documentation
+To help you get started with writing conversions, we've published some of the prompts and conversion scripts we've put together for certain datasets at the [BBQS data ingest repository](https://github.com/brain-bbqs/data-ingest-task-force). 
 
-### Quality Check
+For NWB specifically, you can also take a look at the Python library [neuroconv](https://neuroconv.readthedocs.io/en/stable/), which converts data from proprietary formats to NWB.
+
+## Quality Check
 
 There are two quality checks:
 
@@ -90,11 +92,11 @@ There are two quality checks:
 
 The first check is relatively quick - once your data is standardized, you can run validation checks to ensure that it can be uploaded (see [uploading data](../user-guide/uploading-data.md)) without errors to EMBER. 
 
-The second (optional) check requires rebuilding analyses that were conducted on the original unstandardized data using the new, standardized data. At a minimum, this is recreation of figures generated for a publication.
-
+The second (optional) check requires rebuilding analyses that were conducted on the original unstandardized data using the new, standardized data. At a minimum, this is recreation of figures generated for a publication. You can see an example of this from a BBQS team [here](../example-standardization-and-reproducibility/Suthana_Zenodo.md).
+<!-- 
 !!! success "EMBER-verified"
-    EMBER-DANDI datasets that meet this second quality check will be denoted as "EMBER Verified".
+    EMBER-DANDI datasets that meet this second quality check will be denoted as "EMBER Verified". -->
 
-### Getting Help
+## Getting Help
 
 If you need help or have any questions, please reach out to [help@emberarchive.org](mailto:help@emberarchive.org).
