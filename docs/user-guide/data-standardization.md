@@ -3,7 +3,7 @@
 The following information is used to determine best practices and what standard(s) to use for your data:
 
 - **Modalities**: types of data streams (e.g., EEG, kinematic, EMG, audio, video, annotations)
-- **Metadata**: crtical information a secondary user would need to interpret values correctly and have sufficient context for the experiment (e.g., sampling rates, channel identity, stimulus timing, events)
+- **Metadata**: critical information a secondary user would need to interpret values correctly and have sufficient context for the experiment (e.g., sampling rates, channel identity, stimulus timing, events)
 - **Data Structure**: format of the data (e.g., do you have data split into different sections, are they continuous with each other, how does this structure connect to the greater context of the experiment, how are different experimental sessions represented)
 - **Data Tier**: rawness of data you are sharing (e.g., straight off the device, featurized)
 
@@ -386,7 +386,7 @@ For video:
 ## 5. Validation (Required Before Upload)
 
 Data uploaded to either EMBERVault or EMBER-DANDI must be properly standardized.
-<!-- ***Can this section be updated to jsut use the dandi validator?*** -->
+<!-- ***Can this section be updated to just use the dandi validator?*** -->
 ### Command Line Validation for BIDS (Recommended)
 
 You can find detailed instructions on use of the BIDS validator here:
