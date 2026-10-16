@@ -152,9 +152,9 @@ If you need help, please reach out to [help@emberarchive.org](mailto:help@embera
 
 ## If you are interested in analysis tools
 
-EMBER is also planning development a cloud-based analysis ecosystem cocnnected to the data storage resources:
+EMBER is also planning development of a cloud-based analysis ecosystem connected to the data storage resources:
 
-- **EMBER-Hearth**: enables analysis pipelines such as spike sorting and pose estimation inference in the cloud through both of these platforms. 
+- **EMBER-Hearth**: will support analysis pipelines such as spike sorting and pose estimation inference in the cloud through both EMBER-DANDI and EMBER-Vault. 
 
 
 <br>
