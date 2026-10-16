@@ -61,7 +61,7 @@ If your data are:
 
 ### How do I use EMBER-DANDI?
 
-1. Create an account for EMBER-DANDI as described in the [User Guide](user-guide/index.md).
+1. Create an account for EMBER-DANDI as described in the [User Guide](user-guide/EMBER-DANDI-account.md).
 2. [Standardize your data](user-guide/standardizing-EMBERDANDI.md) using community standards [Brain Imaging Data Structure (BIDS)](https://bids-specification.readthedocs.io/en/stable/) and/or [Neurodata without Borders (NWB)](https://nwb-schema.readthedocs.io/en/latest/format.html#type-specifications).
 3. Finally, upload your standardized data to [EMBER-DANDI](user-guide/uploading-data.md).
 4. You can embargo your dataset for a desired period of time, which means it is viewable only to you and selected individuals.
@@ -152,9 +152,9 @@ If you need help, please reach out to [help@emberarchive.org](mailto:help@embera
 
 ## If you are interested in analysis tools
 
-EMBER is also planning development a cloud-based analysis ecosystem cocnnected to the data storage resources:
+EMBER is also planning development of a cloud-based analysis ecosystem connected to the data storage resources:
 
-- **EMBER-Hearth**: enables analysis pipelines such as spike sorting and pose estimation inference in the cloud through both of these platforms. 
+- **EMBER-Hearth**: will support analysis pipelines such as spike sorting and pose estimation inference in the cloud through both EMBER-DANDI and EMBER-Vault. 
 
 
 <br>

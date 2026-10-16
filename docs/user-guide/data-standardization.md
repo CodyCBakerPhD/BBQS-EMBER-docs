@@ -113,7 +113,7 @@ This covers:
 
 1. [The standardization process and examples](#1-standardization-workflow)
 2. [BIDS Standard](#2-bids-standard)
-3. [Audio/Video](#3-audio--video-bep047)
+3. [Audio/Video](#3-audio-and-video-bep047)
 4. [Validation](#4-validation-required-before-upload)
 5. [Common Pitfalls](#5-common-pitfalls)
 6. [Recommended Workflow](#6-recommended-workflow-step-by-step)
@@ -362,7 +362,7 @@ When combining these standards, our key recommendations are:
 
 ---
 
-## 3. Audio / Video (BEP047)
+## 3. Audio and Video (BEP047)
 
 Supported formats:
 
