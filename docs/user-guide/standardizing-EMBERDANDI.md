@@ -10,8 +10,8 @@ The ultimate goal for standardizing data is to enable secondary users to
 
 EMBER accepts data packaged according to two standards: BIDS and NWB. 
 
-- **BIDS (Brain Imaging Data Specification)** describes how to name files and organize them into appropriately named folders. It also requires metadata to describe data and the experiment. 
-- **NWB (Neurodata without Borders)** is a single file that can hold multiple data streams and associated metadata that correspond to a single experimental session.
+- **BIDS (Brain Imaging Data Structure)** describes how to name files and organize them into appropriately named folders. It also requires metadata to describe data and the experiment. 
+- **NWB (Neurodata Without Borders)** is a single file that can hold multiple data streams and associated metadata that correspond to a single experimental session.
 
 You can choose to convert your data into either standard, or a combination of both. The important considerations are: 
 

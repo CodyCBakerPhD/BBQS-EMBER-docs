@@ -15,9 +15,9 @@ EMBER has two data storage platforms:
 - **EMBER-Vault**: supports HIPAA aligned, restricted human data storage
 
 
-EMBER is also planning development a cloud-based analysis ecosystem cocnnected to the data storage resources:
+EMBER is also planning development of a cloud-based analysis ecosystem connected to the data storage resources:
 
-- **EMBER-Hearth**: enables analysis pipelines such as spike sorting and pose estimation inference in the cloud through both of these platforms. 
+- **EMBER-Hearth**: will support analysis pipelines such as spike sorting and pose estimation inference in the cloud through both of these platforms. 
 
 
 <br>
