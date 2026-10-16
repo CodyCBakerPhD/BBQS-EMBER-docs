@@ -1,5 +1,5 @@
 # Uploading Data
-
+<!-- add instructions on setting embargo -->
 These instructions will guide you on how to upload data to EMBER-DANDI.
 
 ???+ info "Prerequisites"
@@ -35,11 +35,34 @@ dandi upload -i ember-dandi
 
 ### Install Python and the DANDI Client
 
-Please refer to our [Dandi Client](dandi-cli.md) page.
+In these instructions, you will install Python 3.9+ and then install the DANDI Python Client.
 
-### Register for an EMBER-DANDI Account
 
-The steps for registering for an EMBER-DANDI account can found on our [Getting Started](../getting-started/index.md#account-creation) page.
+#### Install Python
+
+If you're new to Python, it may be useful to start by checking out [Python's Getting Started page](https://www.python.org/about/gettingstarted/) There are many ways to install and use Python, so we've highlighted a few common ways to get started below.
+
+- [Install Anaconda](https://www.anaconda.com/docs/getting-started/getting-started)
+- [Install uv](https://docs.astral.sh/uv/#installation)
+
+#### Install the DANDI Client
+
+Once you've gotten up and running with Python, the following command will install the DANDI Client:
+```bash
+pip install -U dandi
+```
+
+#### More Information
+
+For more detailed information on the DANDI Python Client, please refer to the following resources:
+
+- [DANDI Client on PyPI](https://pypi.org/project/dandi/)
+- [DANDI Client docs](https://dandi.readthedocs.io/en/latest/)
+
+
+
+
+
 
 ### Getting Started with NWB
 
@@ -60,8 +83,10 @@ Below, you will find a brief set of steps to help you quickly get started with N
 1. Log in to [EMBER-DANDI](https://dandi.emberarchive.org) with your approved GitHub account
 2. Select the "New Dandiset" button in the top right corner
 3. Fill out basic metadata and hit "Register Dandiset"
+4. Note that you can set your dataset to be private (embargoed) by selecting the toggle at the top. You'll be asked to set a date for the embargo to be released.
 
 <img src="https://ember-web-assets.s3.amazonaws.com/documentation-images/register_new_dandiset.png" alt="screenshot of the New Dandiset form on EMBER-DANDI website" style="width: 90%; display:block; margin-left: auto; margin-right: auto;">
+
 
 
 ### Upload data to your dandiset
@@ -86,6 +111,7 @@ Below, you will find a brief set of steps to help you quickly get started with N
     dandi validate .
     dandi upload -i ember-dandi
     ```
+4. You can publish your dataset at any point by either clicking "Publish" on a draft dandiset, or "Unembargo" and then "Publish". 
 
 !!! note "Uploading Video Files"
     If using video files, replace `dandi organize "source folder"` with 
